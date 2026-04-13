@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Off-canvas menu accsesible</title>
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <div class="offsite-container">
+            <nav aria-label="Main navigation" class="nav" tabindex="-1">
+                <button class="close-button" aria-label="Close navigation">
+                    <svg viewBox="0 0 20 20">
+                        <path
+                            d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"
+                        />
+                    </svg>
+                </button>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="site-container">
+            <h1>Click the button to open the sidebar!</h1>
+            <button class="toggle-menu" aria-expanded="false">
+                <span>Menu</span>
+            </button>
+        </div>
+
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,159 @@
+:root {
+    --color-default-state: grey;
+    --color-hover-state: rgb(107, 107, 195);
+    --color-selected-state: rgb(17, 26, 101);
+}
+
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.carousel {
+    display: grid;
+    grid-template-columns: 3em 80vw 3em;
+    grid-template-rows: 70vh 3em;
+    align-items: center;
+    grid-gap: 1em;
+}
+
+/**
+ * START EDITING HERE!
+ * ===================
+ */
+
+/**
+ * Carousel contents
+ */
+.carousel__contents-container {
+    overflow: hidden;
+}
+
+.carousel__contents-container:focus-within {
+    box-shadow: 0 0 0 0.5rem lightblue1;
+}
+
+.carousel__contents {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateX(0);
+    transition: transform 300ms ease-out;
+}
+
+.carousel__slide {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+}
+
+.carousel__slide > a {
+    display: block;
+    width: inherit;
+    height: inherit;
+}
+
+.carousel__slide img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/**
+ * Buttons
+ */
+.carousel__button {
+    padding: 0.25em;
+    border: none;
+}
+.carousel__button svg {
+    fill: var(--color-default-state);
+}
+
+.carousel__button:hover svg,
+.carousel__button:active svg {
+    fill: var(--color-hover-state);
+}
+
+.carousel__button.is-hidden {
+    display: none;
+}
+
+/**
+ * Dots
+ */
+
+.carousel__dot {
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    border-radius: 100%;
+    background-color: var(--color-default-state);
+}
+
+.carousel__dot + .carousel__dot {
+    margin-left: 1em;
+}
+
+.carousel__dot:hover {
+    background-color: var(--color-hover-state);
+}
+
+.carousel__dot.is-selected {
+    background-color: var(--color-selected-state);
+}
+
+.is-hidden {
+    display: none;
+}
+
+.carousel {
+    grid-template-areas:
+        "left-button contents right-button"
+        ". dots .";
+}
+
+.carousel .previous-button {
+    grid-area: left-button;
+}
+
+.carousel .next-button {
+    grid-area: right-button;
+}
+
+.carousel__contents-container {
+    grid-area: contents;
+    align-self: stretch;
+}
+
+.carousel__dots {
+    grid-area: dots;
+    justify-self: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel__slide {
+    visibility: hidden;
+    /*when changing from X to Z*/
+    transition: visibility 0s 0.3s linear;
+}
+
+.carousel__slide.is-selected {
+    visibility: visible;
+
+    /*showing the selected slide*/
+    transition: visibility 0s linear;
+}

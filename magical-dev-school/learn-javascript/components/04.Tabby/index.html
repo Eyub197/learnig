@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Tabs</title>
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+
+    <body>
+        <a href="">Link</a>
+        <div class="tabby">
+            <div role="tablist" aria-label="Virtual Pets">
+                <button
+                    role="tab"
+                    aria-selected="true"
+                    data-target="digimon"
+                    data-theme="digimon"
+                >
+                    Digimon
+                </button>
+                <button
+                    aria-selected="false"
+                    role="tab"
+                    tabindex="-1"
+                    data-target="pokemon"
+                    data-theme="pokemon"
+                >
+                    Pokemon
+                </button>
+                <button
+                    aria-selected="false"
+                    role="tab"
+                    tabindex="-13"
+                    data-target="tamagotchi"
+                    data-theme="tamagotchi"
+                >
+                    Tamagotchi
+                </button>
+            </div>
+
+            <div class="tabpanels">
+                <section
+                    tabindex="-1"
+                    role="tabpanel"
+                    aria-labelledby="digimon"
+                    data-theme="digimon"
+                >
+                    <img src="images/digimon.png" alt="digimon" />
+                    <h2 id="digimon">Digimon</h2>
+                    <p>
+                        Digimon, short for "Digital Monsters", is a Japanese
+                        media franchise encompassing virtual pet toys, anime,
+                        manga, video games, films and a trading card game. The
+                        franchise focuses on Digimon creatures, which are
+                        monsters living in a "Digital World", a parallel
+                        universe that originated from Earth's various
+                        communication networks.
+                    </p>
+                    <p>
+                        <a href="https://en.wikipedia.org/wiki/Digimon"
+                            >More about Digimon &rarr;</a
+                        >
+                    </p>
+                </section>
+
+                <section
+                    hidden
+                    tabindex="-1"
+                    role="tabpanel"
+                    data-theme="pokemon"
+                    aria-labelledby="pokemon"
+                >
+                    <img src="images/pokemon.png" alt="Pokemon" />
+                    <h2 class="pokemon">Pokémon</h2>
+                    <p>
+                        Pokémon also known as Pocket Monsters in Japan, is a
+                        media franchise managed by The Pokémon Company, a
+                        Japanese consortium between Nintendo, Game Freak, and
+                        Creatures. The franchise copyright is shared by all
+                        three companies, but Nintendo is the sole owner of the
+                        trademark.
+                    </p>
+                    <p>
+                        <a href="https://en.wikipedia.org/wiki/Pokémon"
+                            >More about Pokémon &rarr;</a
+                        >
+                    </p>
+                </section>
+
+                <section
+                    hidden
+                    tabindex="-1"
+                    role="tabpanel"
+                    data-theme="tamagotchi"
+                    aria-labelledby="tamagotchi"
+                >
+                    <img src="images/tamagotchi.png" alt="Tamagotchi" />
+                    <h2 id="tamagotchi">Tamagotchi</h2>
+                    <p>
+                        The Tamagotchi is a handheld digital pet, created in
+                        Japan by Akihiro Yokoi of Bandai. It was released by
+                        Bandai on November 23, 1996 in Japan and May 1, 1997 in
+                        the rest of the world, quickly becoming one of the
+                        biggest toy fads of the 1990s and early 2000s. As of
+                        2010, over 76 million Tamagotchis had been sold
+                        worldwide.
+                    </p>
+                    <p>
+                        <a href="https://en.wikipedia.org/wiki/Tamagotchi"
+                            >More about Tamagotchi &rarr;</a
+                        >
+                    </p>
+                </section>
+            </div>
+        </div>
+        <a href="">another Link</a>
+        <script type="module" src="js/main.js"></script>
+    </body>
+</html>

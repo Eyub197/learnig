@@ -1,0 +1,13 @@
+body {
+    height: 2000px;
+}
+.scrollable {
+    overflow: auto;
+    height: 300px;
+    border: 1px solid black;
+}
+
+/* Places content below the 300px height limit */
+.scrollable > div {
+    margin-top: 500px;
+}
