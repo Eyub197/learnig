@@ -1,0 +1,83 @@
+.wrapper {
+    --rect-width: 100px;
+    display: grid;
+    grid-template-columns:
+      repeat(2, 1fr);
+    align-content: center;
+    justify-items: center;
+    gap: 4px;
+    min-height: 100%;
+}
+
+.box:nth-of-type(odd) {
+    justify-self: end;
+  }
+  
+.box:nth-of-type(even) {
+    justify-self: start;
+}
+
+
+.box {
+    width: var(--rect-width);
+    height: 80px;
+}
+
+.box.one {
+    width: calc(var(--rect-width) * 0.25);
+    background-color: pink;
+}
+
+.box.two {
+    width: calc(var(--rect-width) * 0.75);
+    background-color: pink;
+}
+
+.box.three {
+    width: calc(var(--rect-width) * 0.5);
+    background-color: lavender;
+}
+
+.box.four {
+    width: calc(var(--rect-width) * 0.5);
+    background-color: lavender;
+}
+
+.box.five {
+    width: calc(var(--rect-width) * 0.75);
+    background-color: honeydew;
+}
+
+.box.six {
+    width: calc(var(--rect-width) * 0.25);
+    background-color: honeydew;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+/* His soulution diffrences
+.wrapper {
+  --rect-width: 100px;
+  display: grid;
+  grid-template-columns:
+    repeat(2, 1fr);
+  align-content: center;
+  gap: 4px;
+  min-height: 100%;
+}
+
+.box:nth-of-type(odd) {
+  justify-self: end;
+}
+
+.box {
+  width: var(--rect-width);
+  height: 80px;
+}
+
+
+
+*/

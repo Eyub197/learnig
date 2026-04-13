@@ -1,0 +1,12 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    place-content: center;
+}
+
+.wave {
+    font-size: 3rem;
+}

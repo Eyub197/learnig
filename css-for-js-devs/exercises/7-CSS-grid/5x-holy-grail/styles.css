@@ -1,0 +1,34 @@
+/*
+  These styles are purely presentational,
+  to make your grid children more distinctive
+*/
+header, nav, aside, main, footer {
+    border: 3px solid;
+    padding: 16px;
+  }
+  
+  header {
+    border-color: hsl(45deg 100% 50%);
+    background-color: hsl(45deg 100% 50% / 0.2);
+  }
+  nav {
+    border-color: hsl(170deg 100% 35%);
+    background-color: hsl(170deg 100% 35% / 0.2);
+  }
+  main {
+    border-color: hsl(220deg 100% 50%);
+    background-color: hsl(220deg 100% 50% / 0.2);
+  }
+  aside {
+    border-color: hsl(300deg 100% 45%);
+    background-color: hsl(300deg 100% 45% / 0.2);
+  }
+  footer {
+    border-color: hsl(350deg 100% 60%);
+    background-color: hsl(350deg 100% 60% / 0.2);
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+  }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop in text</title>
+</head>
+<body>
+    <style>
+          @keyframes drop-in-text {
+         from { 
+            transform: translateY(-10px);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
+
+         to { 
+            transform: translateY(0px);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }   
+    
+  }
+
+        .highlighted {
+          background: hsl(50deg 100% 70%);
+          padding: 12px 24px;
+          font-size: 1.25rem;
+          font-weight: bold;
+          width: -moz-fit-content;
+          width: fit-content;
+          border-radius: 4px;
+          animation: drop-in-text 1200ms both ease-in-out;
+        }
+      </style>
+      
+      <p class="highlighted">
+        The World's Best Keyboard
+      </p>
+</body>
+</html>

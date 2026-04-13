@@ -1,0 +1,41 @@
+.hero {
+    background: url('https://courses.joshwcomeau.com/cfj-mats/night-sky.jpg');
+    background-size: cover;
+    background-position: bottom center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 0px 0.3em 1em hsl(295deg 100% 10%);
+  }
+  
+  .max-width-wrapper {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 32px;
+  }
+  
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  main {
+    padding: 64px 0;
+    font-size: 1.4rem;
+  }
+  p {
+    margin-bottom: 1.5em;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    background: black;
+    color: white;
+  }
+  * {
+    box-sizing: border-box;
+  }

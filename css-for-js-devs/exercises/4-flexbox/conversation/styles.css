@@ -1,0 +1,27 @@
+/* Default / cosmetic styles */
+html, body {
+    height: 100%;
+  }
+  ol {
+    min-height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .message {
+    display: block;
+    padding: 16px;
+    margin: 8px;
+    border-radius: 6px;
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 70%;
+  }
+  .message.sent {
+    background: hsl(240deg 100% 47%);
+    color: white;
+  }
+  .message.received {
+    background: hsl(0deg 0% 90%);
+    color: black;
+  }

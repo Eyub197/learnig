@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max width wrapper</title>
+</head>
+<!-- Specifically, our goal with a max-width wrapper is to fulfill these constraints:
+
+It fills the available space on smaller viewports.
+It sets a maximum width, and will horizontally center itself within the parent if there is leftover space.
+It includes a bit of horizontal “breathing room”, so that its children aren't pressed right up against the edges of the viewport.
+ -->
+<body>
+    <style>
+    *{ box-sizing: border-box;}
+        /* TODO */
+    .max-width-wrapper {
+        max-width: 350px;
+        margin-inline: auto;
+        padding-inline: 16px;
+    }    
+
+
+    </style>
+      
+    <div class="max-width-wrapper">
+
+      </div>
+      <div class="card">
+        <p>
+          Otters have long, slim bodies and relatively short limbs. Their most striking anatomical features are the powerful webbed feet used to swim, and their seal-like abilities holding breath underwater.
+        </p>
+      </div>
+    </div>
+
+
+</body>
+      
+</body>
+</html>

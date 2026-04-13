@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pop-up Help Circle</title>
+</head>
+<body>
+    <!--
+Acceptance criteria:
+
+• Should have a 1000ms delay
+• Should animate over 500ms
+• Should have 32px of spacing from the
+  bottom-right corner
+-->
+
+  <style> 
+    body{
+        overflow: clip;
+    }
+  
+  .help-circle {
+    --spacing: 32px;
+    position: absolute;
+    bottom: var(--spacing);
+    right: var(--spacing);
+    animation: pop-up 500ms backwards ease-in;
+    animation-delay: 1000ms
+  }
+  
+  @keyframes pop-up {
+    from { transform: translateY(calc(100% + var(--spacing))) }
+    to { transform: translateY(0%) }
+  }
+  
+  </style>
+  
+  <button class="help-circle">
+    <img
+      alt=""
+      src="https://courses.joshwcomeau.com/cfj-mats/help-white.svg"
+    />
+    <span class="visually-hidden">
+      Access help center
+    </span>
+  </button>
+</body>
+</html>

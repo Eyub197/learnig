@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Holy Grail</title>
+</head>
+<body>
+    <!--
+• The layout should span the entire page.
+• A header should use a <header> tag, and be 4rem tall.
+• The sidebar should use a <nav> tag, and be 200px wide.
+• The main content area should use <main>, and fill the available space.
+• The ad unit should use an <aside> tag, and be 150px wide.
+• The footer should use a <footer> tag, and be 5rem tall.
+-->
+
+<style>
+
+    html, body {
+      height: 100%;
+    }
+  
+    .wrapper {
+      display: grid;
+      grid-template-rows: 4rem 1fr 5rem;
+      grid-template-columns: 200px 1fr 150px;
+      grid-template-areas: 
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+      min-height: 100%;
+    
+    }
+  
+    header { grid-area: header; }
+    nav { grid-area : nav; }
+    main { grid-area: main; }
+    aside { grid-area:aside; }
+    footer { grid-area: footer; }
+  
+  </style>
+  
+  <div class="wrapper">
+    <header></header>
+    <nav></nav>
+    <main></main>
+    <aside></aside>
+    <footer></footer>
+  </div>
+</body>
+</html>

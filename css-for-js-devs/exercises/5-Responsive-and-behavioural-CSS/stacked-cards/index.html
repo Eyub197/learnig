@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacked cards</title>
+</head>
+<body>
+    <style>
+        main {
+          --free-space: 8px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--free-space);
+          padding: var(--free-space);
+        }
+        article {
+          border-radius: var(--free-space);
+          padding: var(--free-space);
+        }
+      
+        @media (min-width: 350px) {
+          main {
+            --free-space: 16px;
+          }
+        }
+      
+        @media (min-width: 500px) {
+           main {
+            --free-space: 32px;
+          }
+        }
+      </style>
+      
+      <main>
+        <article>Card 1</article>
+        <article>Card 2</article>
+        <article>Card 3</article>
+      </main>
+</body>
+</html>

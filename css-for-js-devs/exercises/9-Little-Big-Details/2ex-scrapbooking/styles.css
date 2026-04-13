@@ -1,0 +1,17 @@
+body {
+    padding: 64px 32px;
+}
+
+.wrapper {
+    background: peachpuff;
+    padding: 64px;
+}
+
+.card {
+    padding: 16px;
+    background: white;
+}
+
+.sticker {
+    font-size: 5rem;
+}

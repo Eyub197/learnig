@@ -1,0 +1,39 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: hsl(230deg 80% 90%);
+    display: grid;
+    place-content: center;
+    min-height: 100%;
+}
+  
+.tooltip {
+    position: relative;
+    width: 160px;
+    padding: 16px;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1px;
+    margin: auto;
+    background: inherit;
+    width: 24px;
+    height: 24px;
+    transform: translateY(-100%);
+    /*
+        “clip-path” cuts out the triangle
+        shape. We'll learn more about it
+        later this module!
+    */
+    clip-path:
+        polygon(0% 100%, 50% 0%, 100% 100%);
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Photo zoom</title>
+</head>
+<body>
+    <style>
+        
+        a {
+            overflow: clip;
+        }
+
+        img {
+            transition: 250ms transform;
+        }
+  
+        a:hover img {
+            transform: scale(1.2)
+        }
+
+    </style>
+      
+    <div class="wrapper">
+        <a href="/" class="thumbnail-wrapper">
+            <img
+            alt="A balloon store"
+            class="thumbnail"
+            src="https://courses.joshwcomeau.com/cfj-mats/article-image-balloons.jpg"
+            />
+        </a>
+        <a href="/" class="thumbnail-wrapper">
+            <img
+            alt="A good-boy dog. Black and white."
+            class="thumbnail"
+            src="https://courses.joshwcomeau.com/cfj-mats/article-image-spot.jpg"
+            />
+        </a>
+        <a href="/" class="thumbnail-wrapper">
+            <img
+            alt="A cardboard standing-desk tool."
+            class="thumbnail"
+            src="https://courses.joshwcomeau.com/cfj-mats/article-image-standing.jpg"
+            />
+        </a>
+        <a href="/" class="thumbnail-wrapper">
+            <img
+            alt="A “tokyo drift” style sports car"
+            class="thumbnail"
+            src="https://courses.joshwcomeau.com/cfj-mats/article-image-car.jpg"
+            />
+        </a>
+        <a href="/" class="thumbnail-wrapper">
+            <img
+            alt="A young man amongst daisies in a field"
+            class="thumbnail"
+            src="https://courses.joshwcomeau.com/cfj-mats/article-image-flower-boy.jpg"
+            />
+        </a>
+    </div>
+</body>
+</html>

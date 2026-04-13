@@ -1,0 +1,14 @@
+nav, main {
+    height: 200px;
+    border: 3px solid;
+  }
+  
+  nav {
+    border-color: hsl(330deg 100% 50%);
+    background: hsl(330deg 100% 50% / 0.2);
+  }
+  
+  main {
+    border-color: hsl(45deg 100% 50%);
+    background: hsl(45deg 100% 50% / 0.2);
+  }

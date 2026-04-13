@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog layout</title>
+</head>
+<body>
+    <style>
+        .dialog-wrapper {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: hsl(0deg 0% 0% / 0.75);
+          display: grid;
+          place-content: center;
+        }
+      
+        .dialog-content {
+          position: relative;
+          width: 600px;
+          max-width: 100vw;
+          height: 400px;
+          background: white;
+          border-radius: 6px;  
+        }
+      
+        .close-btn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 16px;
+          background: transparent;
+          border: none;
+          font-weight: bold;
+          transform: translateY(-100%);
+        }
+      </style>
+      
+      <div class="dialog-wrapper">
+        <div class="dialog-content">
+          <button class="close-btn">
+            Close
+          </button>
+        </div>
+      </div>
+</body>
+</html>

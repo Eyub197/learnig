@@ -1,0 +1,32 @@
+body {
+    background-color: hsl(240deg 80% 90%);
+  }
+  
+  .wrapper {
+    display: grid;
+    grid-template-columns:
+      repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    padding: 16px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    background: white;
+    border-radius: 8px;
+    border: 2px solid hsl(240deg 100% 75%);
+    /* transition: 250ms transform  */
+  }
+  
+  /* .card-link:hover .card {
+    transform: translateY(-10px);
+  }
+   */
+  .card img {
+    width: 64px;
+    height: 64px;
+  }

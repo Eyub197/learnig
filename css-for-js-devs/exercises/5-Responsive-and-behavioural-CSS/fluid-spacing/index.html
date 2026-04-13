@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Fluid spacing</title>
+</head>
+<body>
+    <!--
+    Minimum 1rem, when 400px or smaller
+    Maximum 5rem, when ~930px or larger
+    -->
+    <style>
+        
+        ul {
+          display: flex;
+          gap: clamp(1rem, 12dvw - 2rem, 5rem);
+        }
+      </style>
+      
+      <nav>
+        <ul>
+          <li>
+            <a href="/">News</a>
+          </li>
+          <li>
+            <a href="/">Classifieds</a>
+          </li>
+          <li>
+            <a href="/">Opinion</a>
+          </li>
+        </ul>
+      </nav>
+</body>
+</html>

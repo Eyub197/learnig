@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waving hand</title>
+</head>
+<body>
+    <style>
+        .wave {
+            display: inline-block;
+            animation: wave-hand 1200ms infinite alternate ease-in-out;
+            transform-origin: 80% 75%;
+        }
+
+        @keyframes wave-hand {
+            from { transform: rotate(0turn); }
+            to { transform: rotate(0.10turn); }
+        }
+        /* The staring point was .wave class */
+    </style>
+      
+    <p>
+        <span class="wave" role="img" aria-label="Waving hand">👋 </span>
+    </p>
+</body>
+</html>

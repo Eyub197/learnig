@@ -1,0 +1,16 @@
+ul {
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
