@@ -1,0 +1,54 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Playfair Display";
+    margin: 2em;
+}
+
+
+img {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+/* typography */
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: normal;
+    margin-bottom: 6.8rem;
+}
+
+span {
+    color: #07801E;
+}
+
+/* layout */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    width: 100%;
+    height: 400px;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* media queries */
+
+@media (min-width: 600px) {
+    .container {
+        flex-flow: row wrap;
+    }
+
+    .container img {
+        flex-grow: 1;
+    }
+}

@@ -1,0 +1,38 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: #1F1F1F;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 40% 1fr;
+    grid-template-areas: 
+        "...... ...... ......"
+        "...... bigimg bigimg";
+
+    max-width: 1200px;
+    height: 513px;
+    margin: 7em auto;
+}
+
+.item {
+    background-size: cover;
+    background-position: center;
+}
+
+.item:nth-last-of-type(1) { background-image: url("../assets/car1.jpg"); }
+.item:nth-last-of-type(2) { background-image: url("../assets/car2.jpg"); }
+.item:nth-last-of-type(3) { background-image: url("../assets/car3.jpg"); }
+.item:nth-last-of-type(4) { background-image: url("../assets/car4.jpg"); }
+.item:nth-last-of-type(5) { background-image: url("../assets/car5.jpg"); }
+
+.last  {
+    /* grid-column: 2/ 4; */
+    grid-area: bigimg;
+}

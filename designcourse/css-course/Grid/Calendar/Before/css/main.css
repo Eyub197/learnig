@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #0460BC;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+}
+
+a, span:hover {
+    background-color: #E1E9F0;
+    border-radius: 0.3em;
+}
+
+/* typography */
+
+h1 {
+    margin: 0;
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 2em;
+}
+
+
+/* layout */
+
+section {
+    width: 380px;
+    margin: 20em auto;
+    padding: 2em;
+    background-color: white;
+    border-radius: 1em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1em;
+    height: 100%;
+    margin-top: 1em;
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+/* btn */
+
+a {
+    padding: 0.8em 0.8em 0.4em;
+    border-radius: .3em;
+}
+
+/* utils */
+
+.grey {
+    color: gray;
+}
+
+span {
+    cursor: pointer;
+}

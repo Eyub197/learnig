@@ -1,0 +1,147 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #E9EDF1;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li a, a.cart {
+    color:  black;
+}
+
+/* typography */
+
+a.logo, ul li a:hover {
+    color: #0460BC;
+}
+
+a.logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+ul li a {
+    font-size: 1.8rem;
+}
+
+ul li a.active {
+    font-weight: bold;
+}
+
+a.cart p {
+    margin: 0;
+}
+
+a.cart:hover {
+    background-color: #B5C0CE;
+}
+
+
+/* layout */
+
+.navbar, 
+ul, 
+a.cart,
+.mobile-cart-menu{
+    display: flex;
+}
+
+.navbar,
+ a.cart,
+ .mobile-cart-menu {
+    align-items: center;
+}
+
+
+header {
+    padding: 2.5em;
+    background-color: #DBE1E8;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 33%;
+    padding: 4.6em;
+    background-color: white;
+    transition: right .5s ease-in-out;
+    z-index: 1;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+ul {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4.3em;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a.cart {
+    gap: 1rem;
+    padding: 1rem;
+    font-size: 1.8rem;
+    background-color: #C3CCD7;
+    border-radius: .4rem;
+}
+
+
+.mobile-cart-menu {
+    gap: 2em;
+}
+    
+/* buttons */
+    
+.close-btn, .menu-btn {
+    display: block;
+    cursor: pointer;
+    width: 3rem;
+}
+
+.close-btn {
+    margin-left: auto;
+    margin-bottom: 6.6rem;
+}
+
+/* utilities */
+
+.open {
+    right: 0;
+}
+
+
+@media (min-width: 600px) {
+    .menu-btn, .close-btn {
+        display: none;
+    }
+
+    nav {
+        position: unset;
+        height: auto;
+        background: none;
+        padding: 0;
+        width: auto;
+    }
+ 
+    ul{
+        flex-direction: row;
+    }
+}

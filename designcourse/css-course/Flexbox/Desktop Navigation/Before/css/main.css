@@ -1,0 +1,83 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #E9EDF1;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+}
+
+ul,li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+
+/* typography */
+
+ul li a:hover, .logo {
+    color: #0460BC; 
+}
+
+ul li a, .cart {
+    font-size: 1.8rem;
+    color: black;
+}
+
+.active, .logo {
+    font-weight: bold;
+}
+
+.logo {
+    font-size: 2.2rem;
+}
+
+.cart:hover{
+    background-color: #B5C0CE;
+}
+
+/* layout */
+
+header {
+    width: 100%;
+    padding: 2.5em;
+    background-color: #DBE1E8;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+ul {
+    gap: 4.3em;
+}
+
+.cart {
+    padding: 1rem;
+    color: black;
+    background-color: #C3CCD7;
+    border-radius: 0.4em;
+}
+
+/* utilities */
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
