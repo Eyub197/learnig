@@ -1,0 +1,16 @@
+{
+  "name": "huckleberry",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Joshua Comeau",
+  "scripts": {
+    "dev": "live-server --port=9000 --host=localhost .",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "live-server": "1.2.1"
+  },
+  "engines": {
+    "npm": ">5"
+  }
+}
