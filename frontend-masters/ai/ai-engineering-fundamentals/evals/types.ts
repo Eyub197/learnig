@@ -1,130 +1,29 @@
-import type { ModelMessage } from "ai";
+// Test cases live in evals/datasets/golden.json. Each one describes a single
+// prompt the agent should handle, plus what a good response looks like.
 
-/**
- * Input data for single-turn tool selection evaluations.
- * Tests whether the LLM selects the correct tools without executing them.
- */
-export interface EvalData {
-  /** The user prompt to test */
-  prompt: string;
-  /** Optional system prompt override (uses default if not provided) */
-  systemPrompt?: string;
-  /** Tool names to make available for this evaluation */
-  tools: string[];
-  /** Configuration for the LLM call */
-  config?: {
-    model?: string;
-    temperature?: number;
-  };
+export type Difficulty = "simple" | "medium" | "hard" | "edge";
+export type Category = "layout" | "content" | "structure" | "edge-case";
+
+export interface TestCase {
+  id: string;
+  input: string;
+  expectedCharacteristics: string[];
+  difficulty: Difficulty;
+  category: Category;
 }
 
-/**
- * Target expectations for single-turn evaluations
- */
-export interface EvalTarget {
-  /** Tools that MUST be selected (golden prompts) */
-  expectedTools?: string[];
-  /** Tools that MUST NOT be selected (negative prompts) */
-  forbiddenTools?: string[];
-  /** Category for grouping and filtering */
-  category: "golden" | "secondary" | "negative";
+// What we collect from running a test case through the agent.
+export interface EvalResult {
+  testCaseId: string;
+  input: string;
+  response: string;
+  elements: unknown[];
+  durationMs: number;
+  error?: string;
 }
 
-/**
- * Result from single-turn executor
- */
-export interface SingleTurnResult {
-  /** Raw tool calls from the LLM */
-  toolCalls: Array<{ toolName: string; args: unknown }>;
-  /** Just the tool names for easy comparison */
-  toolNames: string[];
-  /** Whether any tool was selected */
-  selectedAny: boolean;
-}
-
-/**
- * Mock tool configuration for multi-turn evaluations.
- * Tools return fixed values for deterministic testing.
- */
-export interface MockToolConfig {
-  /** Tool description shown to the LLM */
-  description: string;
-  /** Parameter schema (simplified - all params treated as strings) */
-  parameters: Record<string, string>;
-  /** Fixed return value when tool is called */
-  mockReturn: string;
-}
-
-/**
- * Input data for multi-turn agent evaluations.
- * Supports both fresh conversations and mid-conversation scenarios.
- */
-export interface MultiTurnEvalData {
-  /** User prompt for fresh conversation (use this OR messages, not both) */
-  prompt?: string;
-  /** Pre-filled message history for mid-conversation testing */
-  messages?: ModelMessage[];
-  /** Mocked tools with fixed return values */
-  mockTools: Record<string, MockToolConfig>;
-  /** Configuration for the agent run */
-  config?: {
-    model?: string;
-    maxSteps?: number;
-  };
-}
-
-/**
- * Target expectations for multi-turn evaluations
- */
-export interface MultiTurnTarget {
-  /** Original task description for LLM judge context */
-  originalTask: string;
-  /** Expected tools in order (for tool ordering evaluation) */
-  expectedToolOrder?: string[];
-  /** Tools that must NOT be called */
-  forbiddenTools?: string[];
-  /** Mock tool results for LLM judge context */
-  mockToolResults: Record<string, string>;
-  /** Category for grouping */
-  category: "task-completion" | "conversation-continuation" | "negative";
-}
-
-/**
- * Result from multi-turn executor
- */
-export interface MultiTurnResult {
-  /** Final text response from the agent */
-  text: string;
-  /** All steps taken during the agent loop */
-  steps: Array<{
-    toolCalls?: Array<{ toolName: string; args: unknown }>;
-    toolResults?: Array<{ toolName: string; result: unknown }>;
-    text?: string;
-  }>;
-  /** Unique tool names used during the run */
-  toolsUsed: string[];
-  /** All tool calls in order */
-  toolCallOrder: string[];
-}
-
-/**
- * Single entry in a single-turn evaluation dataset
- */
-export interface SingleTurnDatasetEntry {
-  data: EvalData;
-  target: EvalTarget;
-  metadata?: {
-    description?: string;
-  };
-}
-
-/**
- * Single entry in a multi-turn evaluation dataset
- */
-export interface MultiTurnDatasetEntry {
-  data: MultiTurnEvalData;
-  target: MultiTurnTarget;
-  metadata?: {
-    description?: string;
-  };
+// Same as EvalResult but with a manual score and notes the human added.
+export interface ScoredResult extends EvalResult {
+  score: 1 | 2 | 3 | 4 | 5;
+  notes?: string;
 }
