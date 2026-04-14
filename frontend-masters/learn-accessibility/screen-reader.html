@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen Reader Accessibility - Web Accessibility Workshop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a href="index.html" class="back-link">← Back to Workshop Index</a>
+    <main>
+      <h1>Exercise 1: Screen Reader Accessibility</h1>
+      <p>
+        In this exercise, you'll learn how to make web content accessible to
+        screen readers by fixing non-semantic HTML.
+      </p>
+
+      <div class="exercise-content">
+        <section class="instructions">
+          <h2>Instructions</h2>
+          <p>
+            Below is a website built without semantic HTML. Try navigating it
+            with a screen reader, then update it to use proper semantic
+            elements.
+          </p>
+          <ol>
+            <li>Use your screen reader to navigate the example below</li>
+            <li>Notice how difficult it is to understand the structure</li>
+            <li>
+              Update the HTML to use semantic elements like
+              <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+              <code>&lt;main&gt;</code>, etc.
+            </li>
+            <li>Add appropriate ARIA labels where needed</li>
+            <li>
+              Test again with your screen reader to verify the improvements
+            </li>
+          </ol>
+        </section>
+
+        <section class="example">
+          <h2>Example to Fix</h2>
+          <!-- Non-semantic website example -->
+          <div class="practice-area">
+            <header class="header">
+              <h1 class="title">My Website</h1>
+            </header>
+
+            <nav class="nav">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+
+            <main class="main-content">
+              <section class="section">
+                <span class="big-text">Welcome to our page</span>
+                <div class="text">Here is some important information.</div>
+              </section>
+
+              <section class="section">
+                <span class="big-text">Latest Updates</span>
+                <div class="text">Check out our new features!</div>
+              </section>
+
+              <form class="form-container">
+                <h2 class="form-title">Contact Us</h2>
+                <div>
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" />
+                </div>
+                <div>
+                  <label for="email">Email:</label>
+                  <input type="text" id="email" />
+                </div>
+                <div>
+                  <label for="message">Message:</label>
+                  <input type="text" id="message" />
+                </div>
+                <div>
+                  <label for="newsletter">Subscribe to Newsletter</label>
+                  <input type="checkbox" id="newsletter" />
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    onclick="alert('Form submitted!')"
+                    class="submit-button"
+                  >
+                    Submit Form
+                  </button>
+                </div>
+              </form>
+            </main>
+          </div>
+        </section>
+
+        <section class="hints">
+          <h2>Hints</h2>
+          <ul>
+            <li>
+              Replace <code>div</code> elements with appropriate semantic
+              elements
+            </li>
+            <li>Use proper heading hierarchy (h1, h2, etc.)</li>
+            <li>Add proper form labels and structure</li>
+            <li>Make navigation links actually clickable</li>
+            <li>Add appropriate ARIA labels for interactive elements</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
