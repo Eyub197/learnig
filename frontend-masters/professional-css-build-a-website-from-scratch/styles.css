@@ -1,0 +1,743 @@
+@layer reset, base, layout, components, utilities;
+
+@view-transition {
+    navigation: auto;
+}
+
+@layer reset {
+    /* 1. Use a more-intuitive box-sizing model */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    /* 2. Remove default margin */
+
+    *:not(dialog) {
+        margin: 0;
+    }
+
+    /* 3. Enable keyword animations */
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            interpolate-size: allow-keywords;
+        }
+    }
+    /*hello */
+    body {
+        /* 4. Add accessible line-height */
+        line-height: 1.5;
+        /* 5. Improve text rendering */
+        -webkit-font-smoothing: antialiased;
+        text-size-adjust: none;
+    }
+
+    /* 6. Improve media defaults */
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+        display: block;
+        max-width: 100%;
+    }
+
+    /* 7. Inherit fonts for form controls */
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+    /* 8. Avoid text overflows */
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        overflow-wrap: break-word;
+    }
+
+    /* 9. Improve line wrapping */
+    p {
+        text-wrap: pretty;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-wrap: balance;
+        line-height: 1.1;
+    }
+
+    /* 10. Create a root stacking context */
+    #root,
+    #__next {
+        isolation: isolate;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+}
+
+@layer base {
+    :root {
+        --clr-white: hsl(0, 0%, 100%);
+        --clr-gray: hsl(0, 2%, 79%);
+        --clr-brand-400: hsl(25, 88%, 75%);
+        --clr-brand-500: hsl(25, 88%, 66%);
+        --clr-green-300: hsl(143, 19%, 69%);
+        --clr-green-400: hsl(143, 19%, 49%);
+        --clr-green-500: hsl(143, 39%, 37%);
+        --clr-green-600: hsl(143, 29%, 19%);
+
+        --clr-brown-100: hsl(10, 5%, 90%);
+        --clr-brown-200: hsl(9, 7%, 85%);
+        --clr-brown-300: hsl(9, 8%, 75%);
+        --clr-brown-400: hsl(0, 6%, 60%);
+
+        --clr-brown-500: hsl(10, 5%, 25%);
+        --clr-brown-600: hsl(9, 7%, 21%);
+        --clr-brown-700: hsl(9, 8%, 16%);
+        --clr-brown-800: hsl(0, 6%, 15%);
+        --clr-brown-900: hsl(0, 6%, 13%);
+
+        --clr-orange-500: hsl(28, 43%, 28%);
+        --clr-red-500: hsl(259, 34%, 24%);
+        --clr-teal-500: hsl(186, 42%, 25%);
+
+        --ff-body: "Fira Sans", sans-serif;
+        --ff-heading: "Outfit", sans-serif;
+
+        --fs-300: 0.875rem;
+        --fs-400: 1rem;
+        --fs-500: 1.125rem;
+        --fs-600: 1.25rem;
+        --fs-700: 1.5rem;
+        --fs-800: 2rem;
+        --fs-900: 3.75rem;
+        --fs-1000: 3.75rem;
+
+        @media (width > 47.5rem) {
+            --fs-300: 0.875rem;
+            --fs-400: 1rem;
+            --fs-500: 1.25rem;
+            --fs-600: 1.5rem;
+            --fs-700: 2rem;
+            --fs-800: 3rem;
+            --fs-900: 5rem;
+            --fs-1000: 7.5rem;
+        }
+    }
+
+    :root {
+        /* primitives here */
+        --text-main: var(--clr-gray);
+        --text-high-contrast: var(--clr-white);
+        --text-brand: var(--clr-brand-500);
+        --text-brand-light: var(--clr-brand-400);
+
+        --background-accent-light: var(--clr-green-400);
+        --background-accent-main: var(--clr-green-500);
+        --background-accent-dark: var(--clr-green-600);
+
+        --background-extra-light: var(--clr-brown-500);
+        --background-light: var(--clr-brown-600);
+        --background-main: var(--clr-brown-700);
+        --background-dark: var(--clr-brown-800);
+        --background-extra-dark: var(--clr-brown-900);
+
+        --font-size-heading-sm: var(--fs-700);
+        --font-size-heading-regular: var(--fs-800);
+        --font-size-heading-lg: var(--fs-900);
+        --font-size-heading-xl: var(--fs-1000);
+
+        --font-size-sm: var(--fs-300);
+        --font-size-regular: var(--fs-400);
+        --font-size-md: var(--fs-500);
+        --font-size-lg: var(--fs-600);
+
+        --border-radius-1: 0.25rem;
+        --border-radius-2: 0.5rem;
+        --border-radius-3: 0.75rem;
+
+        @media (prefers-color-scheme: light) {
+            --text-main: var(--clr-brown-700);
+            --text-high-contrast: var(--clr-brown-900);
+
+            --backoround-accent-dark: var(--clr-green-300);
+            --background-extra-light: var(--clr-brown-100);
+            --background-light: var(--clr-brown-200);
+            --background-main: var(--clr-brown-300);
+            --background-dark: var(--clr-brown-400);
+            --background-extra-dark: var(--clr-brown-500);
+        }
+    }
+
+    html {
+        font-family: var(--ff-body);
+
+        /*if sticky nav make it bigger then the nav*/
+
+        scroll-padding: 72px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
+
+    body {
+        font-size: var(--font-size-regular);
+        color: var(--text-main);
+        background-color: var(--background-main);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: var(--ff-heading);
+        color: var(--text-high-contrast);
+    }
+
+    h1 {
+        font-size: var(--font-size-heading-lg);
+    }
+
+    a {
+        color: var(--text-high-contrast);
+    }
+
+    a:hover,
+    a:focus-visible {
+        color: var(--text-brand-light);
+    }
+
+    img {
+        border-radius: var(--border-radius-3);
+    }
+}
+
+@layer layout {
+    /*selects elements if have sibling before it
+        other way :not(:first-child) or to eleiminate specificty problem
+        :where(:not(:first-child))
+    */
+
+    .flex-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .flow > * + * {
+        margin-block-start: var(--flow-spacer, 1em);
+    }
+
+    .grid-flow {
+        display: grid;
+        gap: var(--grid-flow-grap, 16px);
+    }
+
+    .grid-auto-fill {
+        --auto-fill-min-col-size: 250px;
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(
+            auto-fill,
+            minmax(min(var(--auto-fill-min-col-size), 100%), 1fr)
+        );
+    }
+
+    .equal-columns {
+        display: grid;
+        gap: var(--equal-columns-gap, 16px);
+        align-items: var(--equal-columns-vertical-aligment, strech);
+
+        @media (width > 47.5rem) {
+            grid-auto-flow: column;
+            grid-auto-columns: 1fr;
+        }
+
+        &[data-gap="large"] {
+            --equal-columns-gap: 32px;
+        }
+
+        &[data-alignment="centered"] {
+            --equal-columns-vertical-aligment: center;
+        }
+    }
+
+    .section {
+        --padding: 60px;
+        padding-block: var(--padding);
+
+        @media (width > 47.5rem) {
+            --padding: 128px;
+
+            &[data-padding="compact"] {
+                --padding: 72px;
+            }
+        }
+    }
+
+    .wrapper {
+        --wrapper-max-width: 1130px;
+
+        max-width: var(--wrapper-max-width);
+        margin-inline: auto;
+        padding-inline: 16px;
+        /* because when adding padding it reduces max width when getting from figma we can also use calc to
+            you can also use on the max-width: calc(1130px + paddingvlaue duobe becauose of each side)
+            you can also use width with min function
+        */
+        box-sizing: content-box;
+
+        &[data-width="narrow"] {
+            --wrapper-max-width: 720px;
+        }
+
+        &[data-width="wide"] {
+            --wrapper-max-width: 1330px;
+        }
+    }
+}
+
+@layer components {
+    .skip-to-main:not(:focus) {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    .skip-to-main {
+        background-color: var(--background-accent-main);
+        padding: 16px;
+        border-radius: var(--border-radius-2);
+    }
+
+    .site-header {
+        padding-block: 16px;
+        overflow-x: clip;
+        position: relative;
+    }
+
+    .site-header__inner {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    [aria-controls="primary-nav"] {
+        z-index: 100;
+        background: transparent;
+        cursor: pointer;
+        border: 0;
+
+        img {
+            border-radius: 0;
+        }
+    }
+
+    [aria-controls="primary-nav"] {
+        display: none;
+    }
+
+    .primary-nav {
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        @media (width < 47.5rem) {
+            display: none;
+            opacity: 0;
+            transition:
+                opacity 250ms ease-in-out,
+                display 250ms,
+                transform 250ms;
+            transition-behavior: allow-discrete;
+            transform: translate(100%, 0);
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            font-family: var(--ff-heading);
+            background-color: var(--background-accent-main);
+            padding: 32px;
+            border-radius: 0 0 0 var(--border-radius-3);
+            z-index: 10;
+
+            ul {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            /*:not(:first-child)*/
+            li + li {
+                margin-block-start: 24px;
+                padding-block-start: 24px;
+                border-top: 2px solid var(--background-accent-light);
+            }
+        }
+    }
+
+    @media (width < 47.5rem) {
+        [aria-controls="primary-nav"] {
+            display: block;
+        }
+
+        [aria-expanded="true"] ~ .primary-nav {
+            display: block;
+            opacity: 1;
+            transform: translate(0, 0);
+
+            @starting-style {
+                opacity: 0;
+                transform: translate(0, -100%);
+            }
+        }
+    }
+
+    .site-footer {
+        text-align: center;
+        background-color: var(--background-dark);
+        padding-block: 32px;
+        display: grid;
+        gap: 32px;
+
+        a {
+            color: var(--text-high-contrast);
+        }
+
+        a:hover,
+        a:focus-visible {
+            color: var(--text-brand-light);
+        }
+    }
+
+    .site-footer__title {
+        font-size: var(--font-size-md);
+        font-family: var(--ff-heading);
+        font-weight: 700;
+    }
+
+    .hero {
+        text-align: center;
+        font-size: var(--font-size-md);
+        color: light-dark(var(--text-high-contrast));
+        /* color scheme: dark */
+        background-image: url(./assets/hero.webp);
+        background-size: cover;
+        background-position: center;
+        animation: fade-out forwards;
+        animation-timeline: view();
+        animation-range-start: exit;
+    }
+
+    .hero__title {
+        font-size: var(--font-size-heading-lg);
+        span {
+            color: var(--text-brand);
+            font-size: var(--font-size-heading-xl);
+            display: block;
+        }
+    }
+
+    .mushroom-guide {
+        --card-title-font-size: var(--font-size-lg);
+        --card-title-color: var(--text-high-contrast);
+        --card-gap: 12px;
+    }
+
+    .faq-bento {
+        --card-title-color: --text-high-contrast;
+        display: grid;
+        gap: 16px;
+        grid-template-areas:
+            "card-one"
+            "card-two"
+            "card-three"
+            "card-four";
+
+        @media (width > 37.5rem) {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas:
+                "card-one" "card-two"
+                "card-three card-four";
+        }
+
+        @media (width > 56.25rem) {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:
+                "card-one card-two card-four"
+                "card-three card-three card-four";
+        }
+
+        .card > img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (width > 37.5rem) {
+            .card:nth-child(even) > img {
+                order: 3;
+            }
+        }
+
+        .card:nth-child(1) {
+            grid-area: card-one;
+        }
+
+        .card:nth-child(2) {
+            grid-area: card-two;
+        }
+
+        .card:nth-child(3) {
+            grid-area: card-three;
+
+            @media (width > 56.25rem) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+
+                img {
+                    grid-column: 1 / 2;
+                    grid-row: 1 / 3;
+                }
+            }
+        }
+
+        .card:nth-child(4) {
+            grid-area: card-four;
+        }
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--card-gap, 16px);
+        padding: 16px;
+        background-color: var(--background-light);
+        border-radius: var(--border-radius-3);
+
+        img {
+            border-radius: var(--border-radius-2);
+        }
+    }
+
+    .card__title {
+        font-size: var(--card-title-font-size, var(--font-size-heading-sm));
+        color: var(--card-title-color, var(--text-brand));
+    }
+
+    .card__note {
+        margin-block-start: auto;
+        background-color: var(--background-extra-light);
+        padding: 12px;
+        border-radius: var(--border-radius-2);
+    }
+
+    .tag-list {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+
+        li {
+            font-family: var(--ff-heading);
+            color: var(--text-high-contrast, red);
+            font-size: var(--font-size-sm);
+            padding: 2px 4px;
+            background-color: var(--tag-bg);
+            border-radius: var(--border-radius-1);
+        }
+
+        [data-edible="edible"] {
+            --tag-bg: var(--background-accent-main);
+        }
+
+        [data-edible="toxic"] {
+            --tag-bg: var(--clr-red-500);
+        }
+
+        [data-season="summer"] {
+            --tag-bg: var(--background-accent-main);
+        }
+
+        [data-season="spring"] {
+            --tag-bg: var(--clr-teal-500);
+        }
+
+        [data-season="fall"] {
+            --tag-bg: var(--clr-orange-500);
+        }
+    }
+
+    .button {
+        /*you can use inline-block to but this is better for icons*/
+        display: inline-flex;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 8px 16px;
+        background-color: var(--background-accent-main);
+        font-family: var(--ff-heading);
+        font-size: var(--font-size-md);
+        font-weight: 700;
+        border-radius: var(--border-radius-2);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+        color: var(--text-high-contrast);
+        background-color: var(--background-accent-light);
+    }
+
+    select {
+        padding: 8px 16px;
+        background-color: var(--background-accent-main);
+        border: 0;
+        border-radius: var(--border-radius-2);
+        color: var(--text-high-contrast);
+    }
+}
+
+@layer utilities {
+    /*If you want to hidden attribute to work in html when there are more specific stuff aka class with diplay flex or stuff*/
+    [hidden] {
+        display: none;
+    }
+
+    .resizing * {
+        transition: none !important;
+
+        animation: none;
+    }
+
+    .visually-hidden {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-main {
+        color: var(--text-main);
+    }
+
+    .text-high-contrast {
+        color: var(--text-high-contrast);
+    }
+
+    .text-brand {
+        color: var(--text-brand);
+    }
+
+    .text-brand-light {
+        color: var(--text-brand-light);
+    }
+
+    .background-accent-light {
+        background-color: var(--background-accent-light);
+    }
+
+    .background-accent-main {
+        background-color: var(--background-accent-main);
+    }
+
+    .background-accent-dark {
+        background-color: var(--background-accent-dark);
+    }
+
+    .background-extra-light {
+        background-color: var(--background-extra-light);
+    }
+
+    .background-light {
+        background-color: var(--background-light);
+    }
+
+    .background-main {
+        background-color: var(--background-accent-main);
+    }
+
+    .background-dark {
+        background-color: var(--background-accent-dark);
+    }
+
+    .background-extra-dark {
+        background-color: var(--background-extra-dark);
+    }
+
+    .font-size-heading-sm {
+        font-size: var(--font-size-heading-sm);
+    }
+
+    .font-size-heading-regular {
+        font-size: var(--font-size-heading-regular);
+    }
+
+    .font-size-heading-lg {
+        font-size: var(--font-size-heading-lg);
+    }
+
+    .font-size-heading-xl {
+        font-size: var(--font-size-heading-xl);
+    }
+
+    .font-size-sm {
+        font-size: var(--font-size-sm);
+    }
+
+    .font-size-regular {
+        font-size: var(--font-size-regular);
+    }
+
+    .font-size-md {
+        font-size: var(--font-size-md);
+    }
+
+    .font-size-lg {
+        font-size: var(--font-size-lg);
+    }
+
+    .section-title {
+        font-size: var(--font-size-heading-regular);
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
