@@ -9,42 +9,42 @@ import Logo from "../Logo";
 import Button from "../Button";
 
 const Header = () => {
-  return (
-    <header>
-      <SuperHeader>
-        <Row>
-          <ActionGroup>
-            <button>
-              <Search size={24} />
-            </button>
-            <button>
-              <Menu size={24} />
-            </button>
-          </ActionGroup>
-          <ActionGroup>
-            <button>
-              <User size={24} />
-            </button>
-          </ActionGroup>
-        </Row>
-      </SuperHeader>
-      <MainHeader>
-        <DesktopActionGroup>
-          <button>
-            <Search size={24} />
-          </button>
-          <button>
-            <Menu size={24} />
-          </button>
-        </DesktopActionGroup>
-        <Logo />
-        <SubscribeWrapper>
-          <Button>Subscribe</Button>
-          <SubLink href="/">Already subscribed?</SubLink>
-        </SubscribeWrapper>
-      </MainHeader>
-    </header>
-  );
+	return (
+		<header>
+			<SuperHeader>
+				<Row>
+					<ActionGroup>
+						<button>
+							<Search size={24} />
+						</button>
+						<button>
+							<Menu size={24} />
+						</button>
+					</ActionGroup>
+					<ActionGroup>
+						<button>
+							<User size={24} />
+						</button>
+					</ActionGroup>
+				</Row>
+			</SuperHeader>
+			<MainHeader>
+				<DesktopActionGroup>
+					<button>
+						<Search size={24} />
+					</button>
+					<button>
+						<Menu size={24} />
+					</button>
+				</DesktopActionGroup>
+				<Logo />
+				<SubscribeWrapper>
+					<Button>Subscribe</Button>
+					<SubLink href="/">Already subscribed?</SubLink>
+				</SubscribeWrapper>
+			</MainHeader>
+		</header>
+	);
 };
 
 const SuperHeader = styled.div`
