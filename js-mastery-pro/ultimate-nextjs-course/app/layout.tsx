@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import ThemeProvider from "@/context/Theme";
+import { Figtree } from "next/font/google";
+import { cn } from "@/lib/utils";
+import Navbar from "@/components/navigation/navbar";
+
+const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 
 const inter = localFont({
   src: "./fonts/Inter-VariableFont.ttf",
@@ -31,10 +37,27 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      suppressHydrationWarning
       lang="en"
-      className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
+      className={cn(
+        "antialiased",
+        inter.variable,
+        spaceGrotesk.variable,
+        "font-sans",
+        figtree.variable,
+      )}
     >
-      <body className="font-inter">{children}</body>
+      <body className="font-inter">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
