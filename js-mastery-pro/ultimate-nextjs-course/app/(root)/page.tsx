@@ -9,15 +9,14 @@ async function Page() {
   return (
     <>
       <h1 className="h1-bold">Welcome to the Ultimate Next.js course!</h1>
-      <form
+      {/*<form
         className="px-10 pt-[100px]"
         action={async () => {
           "use server";
           await signOut({ redirectTo: ROUTES.SIGN_IN });
         }}
-      >
-        <Button type="submit">Log out</Button>
-      </form>
+        server way
+      ></form>*/}
     </>
   );
 }

@@ -51,8 +51,8 @@ export default async function RootLayout({
         figtree.variable,
       )}
     >
-      <SessionProvider session={session}>
-        <body className="font-inter">
+      <body className="font-inter">
+        <SessionProvider session={session}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -62,8 +62,8 @@ export default async function RootLayout({
             {children}
           </ThemeProvider>
           <Toaster />
-        </body>
-      </SessionProvider>
+        </SessionProvider>
+      </body>
     </html>
   );
 }
