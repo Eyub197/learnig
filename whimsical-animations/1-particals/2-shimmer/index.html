@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Playground</title>
+  </head>
+  <body>
+    <style>
+      @keyframes shimmer {
+        from {
+          transform: translateX(-100%);
+        }
+
+        to {
+          transform: translateX(100%);
+        }
+      }
+
+      .shimmer {
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          hsl(180deg 100% 90%),
+          transparent
+        );
+        animation: shimmer linear;
+      }
+
+      .buyButton {
+        background-position: 100%;
+        overflow: clip;
+      }
+    </style>
+
+    <button type="button" class="buyButton">Buy Now</button>
+
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
