@@ -19,8 +19,9 @@
       }
 
       @keyframes go {
-        to {
-          transform: translate(var(--transform-x), var(--transform-y));
+        from {
+          top: 50%;
+          left: 50%;
         }
       }
 
@@ -34,10 +35,8 @@
         background: white;
         pointer-events: none;
         animation:
-          fadeToTransparent forwards,
-          go 1000ms forwards;
-        top: 50%;
-        left: 50%;
+          fadeToTransparent var(--fade-duration) forwards,
+          go 500ms forwards;
       }
     </style>
 

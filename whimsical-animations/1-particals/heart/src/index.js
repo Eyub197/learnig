@@ -18,19 +18,12 @@ btn.addEventListener("click", () => {
 	range(5).forEach(() => {
 		const particle = document.createElement("span");
 		particle.classList.add("particle");
+		particle.style.top = `${Math.floor(Math.random() * 100)}%`;
+		particle.style.left = `${Math.floor(Math.random() * 100)}%`;
 
+		particle.style.setProperty("--fade-duration", `${FADE_DURATION}ms`);
 		btn.appendChild(particle);
 		particles.push(particle);
-
-		particle.style.setProperty(
-			"--transform-x",
-			Math.floor(Math.random() * 65 - 32) + "px",
-		);
-		particle.style.setProperty(
-			"--transform-y",
-			Math.floor(Math.random() * 65 - 32) + "px",
-		);
-		particle.style.animationDuration = FADE_DURATION + "ms";
 	});
 
 	window.setTimeout(() => {
