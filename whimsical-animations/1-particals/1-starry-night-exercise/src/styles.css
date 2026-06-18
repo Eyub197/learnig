@@ -58,4 +58,5 @@ body {
   animation: fadeIn 2000ms;
   pointer-events: none;
   user-select: none;
+  transform: translate(-50%, -50%);
 }
