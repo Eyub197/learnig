@@ -14,21 +14,25 @@
     <style>
       @keyframes fall {
         from {
-          transform: translateY(0px);
+          transform: translateX(-50%) translateY(-100%);
+        }
+
+        to {
+          transform: translateX(-50%) translateY(120px);
         }
       }
 
       .emojiWrapper {
-        display: flex;
-        justify-content: space-evenly;
         height: 120px;
         font-size: 2rem;
         overflow: clip;
+        user-select: none;
       }
 
       .emoji {
-        transform: translateY(120px);
-        animation: fall 2s ease-in-out infinite;
+        position: absolute;
+        top: 0;
+        animation: fall linear forwards;
       }
     </style>
     <main>
