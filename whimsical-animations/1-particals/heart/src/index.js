@@ -1,4 +1,5 @@
-import { random, range } from "lodash";
+import { range } from "lodash";
+import { random } from "../../../utils";
 import "./reset.css";
 import "./styles.css";
 
@@ -18,8 +19,9 @@ btn.addEventListener("click", () => {
 	range(5).forEach(() => {
 		const particle = document.createElement("span");
 		particle.classList.add("particle");
-		particle.style.top = `${Math.floor(Math.random() * 100)}%`;
-		particle.style.left = `${Math.floor(Math.random() * 100)}%`;
+		const x = `${random(-48, 48)}px`;
+		const y = `${random(-48, 48)}px`;
+		particle.style.transform = `translate(${x}, ${y})`;
 
 		particle.style.setProperty("--fade-duration", `${FADE_DURATION}ms`);
 		btn.appendChild(particle);
