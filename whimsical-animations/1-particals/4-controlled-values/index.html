@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Playground</title>
+  </head>
+  <body>
+    <style>
+      @keyframes twist {
+        from {
+          transform: rotate(var(--rotation));
+        }
+        to {
+          transform: rotate(calc(var(--rotation) * -1));
+        }
+      }
+
+      .bar {
+        --rotation: 0deg;
+        animation: twist 1s ease-in-out alternate infinite;
+      }
+    </style>
+
+    <div class="wrapper">
+      <div class="bar"></div>
+    </div>
+
+    <div class="controls">
+      <label for="slider">Rotate Amount</label>
+      <input type="range" id="slider" min="0" max="180" value="0" />
+    </div>
+
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
