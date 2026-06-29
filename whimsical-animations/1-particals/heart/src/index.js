@@ -5,7 +5,7 @@ import "./styles.css";
 
 const btn = document.querySelector(".particleButton");
 
-const FADE_DURATION = 1100;
+const FADE_DURATION = 100;
 
 btn.addEventListener("click", () => {
 	btn.classList.toggle("liked");
@@ -22,7 +22,9 @@ btn.addEventListener("click", () => {
 
 		const x = `${random(-48, 48)}px`;
 		const y = `${random(-48, 48)}px`;
-		particle.style.transform = `translate(${x}, ${y})`;
+
+		particle.style.setProperty("--x", x);
+		particle.style.setProperty("--y", y);
 
 		particle.style.setProperty("--fade-duration", `${FADE_DURATION}ms`);
 		btn.appendChild(particle);
