@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Playground</title>
+  </head>
+  <body>
+    <style>
+      @keyframes bounce {
+        to {
+          transform: translateY(calc(var(--y) * -1));
+        }
+      }
+
+      .ball {
+        animation: bounce infinite var(--animation-duration) alternate
+          cubic-bezier(0, 0, 0.27, 1);
+        /* accurate bounce cubic-bezier(0.33, 0.66, 0.66, 1.00); */
+      }
+    </style>
+
+    <div class="wrapper">
+      <!-- Ball 1 should bounce 30px over 300ms -->
+      <div class="ball" style="--y: 30px; --animation-duration: 300ms"></div>
+
+      <!-- Ball 2 should bounce 50px over 400ms -->
+      <div class="ball" style="--y: 50px; --animation-duration: 400ms"></div>
+
+      <!-- Ball 3 should bounce 70px over 500ms -->
+      <div class="ball" style="--y: 70px; --animation-duration: 500ms"></div>
+    </div>
+
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
