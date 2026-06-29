@@ -5,7 +5,7 @@ import "./styles.css";
 
 const btn = document.querySelector(".particleButton");
 
-const FADE_DURATION = 100;
+const FADE_DURATION = 1000;
 
 btn.addEventListener("click", () => {
 	btn.classList.toggle("liked");
