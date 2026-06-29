@@ -1,5 +1,5 @@
 import { range } from "lodash";
-import { random } from "../../../utils";
+import { random, convertPolarToCartesian } from "../../../utils";
 import "./reset.css";
 import "./styles.css";
 
@@ -20,11 +20,12 @@ btn.addEventListener("click", () => {
 		const particle = document.createElement("span");
 		particle.classList.add("particle");
 
-		const x = `${random(-48, 48)}px`;
-		const y = `${random(-48, 48)}px`;
+		const angle = `${random(0, 360)}`;
+		const distance = `${random(32, 64)}`;
 
-		particle.style.setProperty("--x", x);
-		particle.style.setProperty("--y", y);
+		const [x, y] = convertPolarToCartesian(angle, distance);
+		particle.style.setProperty("--x", `${x}px`);
+		particle.style.setProperty("--y", `${y}px`);
 
 		particle.style.setProperty("--fade-duration", `${FADE_DURATION}ms`);
 		btn.appendChild(particle);
