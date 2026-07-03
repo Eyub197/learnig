@@ -6,6 +6,8 @@ import "./styles.css";
 const btn = document.querySelector(".particleButton");
 
 const FADE_DURATION = 1000;
+const NUM_OF_PARTICLES = 5;
+const JITTER = 40;
 
 btn.addEventListener("click", () => {
 	btn.classList.toggle("liked");
@@ -16,11 +18,12 @@ btn.addEventListener("click", () => {
 	}
 
 	const particles = [];
-	range(5).forEach(() => {
+	
+	range(NUM_OF_PARTICLES).forEach((index) => {
 		const particle = document.createElement("span");
 		particle.classList.add("particle");
 
-		const angle = `${random(0, 360)}`;
+		const angle = (360 / NUM_OF_PARTICLES) * index + random(-JITTER, JITTER);
 		const distance = `${random(32, 64)}`;
 
 		const [x, y] = convertPolarToCartesian(angle, distance);
