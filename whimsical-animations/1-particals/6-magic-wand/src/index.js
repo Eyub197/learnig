@@ -31,6 +31,8 @@ window.addEventListener("click", (event) => {
 		particle.style.setProperty("--x", `-${dx}px`);
 		particle.style.setProperty("--y", `-${dy}px`);
 		particle.style.setProperty("--rotation", `${rotation}deg`);
+		particle.style.setProperty("--duration", `${FADE_DURATION}ms`);
+		particle.style.setProperty("--delay", `${FADE_DELAY}ms`);
 
 		particles.push(particle);
 		document.body.appendChild(particle);
