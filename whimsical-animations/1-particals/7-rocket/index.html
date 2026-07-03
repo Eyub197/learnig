@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Playground</title>
+  </head>
+  <body>
+    <style>
+      @keyframes oscillate {
+        from {
+          transform: translateY(-5%);
+        }
+        to {
+          transform: translateY(5%);
+        }
+      }
+
+      @keyframes disperse {
+        to {
+          transform: translate(var(--x), var(--y));
+        }
+      }
+
+      @keyframes fade {
+        to {
+          opacity: 0;
+        }
+      }
+      .rocketWrapper {
+        position: relative;
+      }
+
+      .rocket {
+        animation: oscillate 1000ms alternate ease-in-out infinite;
+      }
+
+      .particle {
+        position: absolute;
+        left: 0;
+        right: 0%;
+        margin-inline: auto;
+        bottom: 20px;
+        animation:
+          disperse 750ms forwards,
+          fade 500ms 500ms forwards;
+      }
+    </style>
+
+    <div class="rocketWrapper">
+      <img
+        class="rocket"
+        alt="A cute 3D illustration of a rocketship made of clay"
+        src="https://sandpack-bundler.vercel.app/img/clay-rocket.png"
+      />
+    </div>
+
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
