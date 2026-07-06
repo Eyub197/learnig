@@ -13,3 +13,16 @@ export function convertPolarToCartesian(angle, distance) {
 
 	return [x, y];
 }
+
+export function normalize(
+	number,
+	currentSclaeMin,
+	currentSclaeMax,
+	newScaleMin = 0,
+	newScaleMax = 1,
+) {
+	const standartNomralizatoin =
+		(number - currentSclaeMin) / (currentSclaeMax - currentSclaeMin);
+
+	return (newScaleMax - newScaleMin) * standartNomralizatoin + newScaleMin;
+}

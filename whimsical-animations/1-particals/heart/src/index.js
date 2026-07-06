@@ -2,6 +2,7 @@ import { range } from "lodash";
 import { random, convertPolarToCartesian } from "../../../utils";
 import "./reset.css";
 import "./styles.css";
+import { normalize } from "../../../utils";
 
 const btn = document.querySelector(".particleButton");
 
@@ -18,12 +19,13 @@ btn.addEventListener("click", () => {
 	}
 
 	const particles = [];
-	
+
 	range(NUM_OF_PARTICLES).forEach((index) => {
 		const particle = document.createElement("span");
 		particle.classList.add("particle");
 
-		const angle = (360 / NUM_OF_PARTICLES) * index + random(-JITTER, JITTER);
+		let angle = normalize(index, 0, NUM_OF_PARTICLES, 0, 360);
+		angle += random(-JITTER, JITTER);
 		const distance = `${random(32, 64)}`;
 
 		const [x, y] = convertPolarToCartesian(angle, distance);
