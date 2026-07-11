@@ -6,13 +6,19 @@ const FADE_DURATION = 1000;
 const FADE_DELAY = 300;
 
 window.addEventListener("click", (event) => {
+	const isMotionEnabled = window.matchMedia(
+		"(prefers-reduced-motion: no-preference)",
+	).matches;
+
 	const x = event.clientX;
 	const y = event.clientY;
 
 	const particles = [];
+	const numOfParticles = isMotionEnabled ? 5 : 3;
 
-	range(5).forEach(() => {
+	range(numOfParticles).forEach(() => {
 		const particle = document.createElement("img");
+
 		particle.setAttribute("alt", "");
 		particle.setAttribute(
 			"src",
@@ -22,17 +28,26 @@ window.addEventListener("click", (event) => {
 		particle.style.left = `${x}px`;
 		particle.style.top = `${y}px`;
 
-		const angle = random(20, 60);
-		const radius = random(20, 60);
+		let angle, distance, popDuration;
+		if (isMotionEnabled) {
+			angle = random(225 - 20, 225 + 20);
+			distance = random(30, 60);
+			popDuration = 1000;
+		} else {
+			angle = random(225 - 60, 225 + 60);
+			distance = random(6, 25);
+			popDuration = 0;
+		}
 
-		const [dx, dy] = convertPolarToCartesian(angle, radius);
 		const rotation = random(90, 360);
 
-		particle.style.setProperty("--x", `-${dx}px`);
-		particle.style.setProperty("--y", `-${dy}px`);
-		particle.style.setProperty("--rotation", `${rotation}deg`);
-		particle.style.setProperty("--duration", `${FADE_DURATION}ms`);
-		particle.style.setProperty("--delay", `${FADE_DELAY}ms`);
+		particle.style.setProperty("--angle", angle + "deg");
+		particle.style.setProperty("--distance", distance + "px");
+		particle.style.setProperty("--rotation", rotation + "deg");
+
+		particle.style.setProperty("--pop-duration", popDuration + "ms");
+		particle.style.setProperty("--fade-duration", FADE_DURATION + "ms");
+		particle.style.setProperty("--fade-delay", FADE_DELAY + "ms");
 
 		particles.push(particle);
 		document.body.appendChild(particle);

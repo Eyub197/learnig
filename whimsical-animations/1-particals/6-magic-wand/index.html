@@ -11,26 +11,31 @@
     <title>Code Playground</title>
   </head>
   <body>
-    <style>
-      @keyframes go {
-        to {
-          transform: translate(var(--x), var(--y)) rotate(var(--rotation));
-        }
-      }
 
-      @keyframes fade {
+    <style>
+    @keyframes fadeToTransparent {
         to {
           opacity: 0;
         }
       }
+      @keyframes disperse {
+        to {
+          transform:
+            translate(
+              calc(cos(var(--angle)) * var(--distance)),
+              calc(sin(var(--angle)) * var(--distance))
+            )
+            rotate(var(--rotation));
+        }
+      }
 
-      .star {
+    .star {
         position: absolute;
         user-select: none;
         pointer-events: none;
         animation:
-          go 1000ms forwards cubic-bezier(0.26, 0.95, 0, 1),
-          fade var(--duration) var(--delay) forwards ease;
+          disperse var(--pop-duration) forwards cubic-bezier(0.26, 0.95, 0.00, 1.00),
+          fadeToTransparent var(--fade-duration) var(--fade-delay) forwards;
       }
     </style>
 
