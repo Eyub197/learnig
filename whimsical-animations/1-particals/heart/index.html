@@ -8,11 +8,21 @@
       href="https://courses.joshwcomeau.com/favicon.rainbow.png"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
     <title>Code Playground</title>
   </head>
   <body>
     <style>
-      @keyframes fadeToTransparent {
+
+    @keyframes twinkle{
+      from {
+        opacity: var(--twinkle-amount);
+      } to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeToTransparent {
         to {
           opacity: 0;
         }
@@ -20,7 +30,10 @@
 
       @keyframes go {
         to {
-          transform: translate(var(--x), var(--y));
+          transform: translate(
+            calc(cos(var(--angle)) * var(--distance)),
+            calc(sin(var(--angle)) * var(--distance))
+          );
         }
       }
 
@@ -28,16 +41,18 @@
         position: absolute;
         inset: 0;
         margin: auto;
-        width: 12px;
-        height: 12px;
+        width: var(--size);
+        height: var(--size);
         border-radius: 50%;
         background: white;
         pointer-events: none;
         animation:
-          fadeToTransparent var(--fade-duration) forwards,
-          go 600ms forwards cubic-bezier(0.2, 0.56, 0, 1);
+          twinkle 300ms infinite alternate ease-in-out,
+          fadeToTransparent var(--fade-duration) var(--fade-delay) forwards,
+          go var(--pop-duration) forwards cubic-bezier(0.2, 0.56, 0, 1);
       }
-    </style>
+
+      </style>
 
     <button type="button" class="particleButton">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
