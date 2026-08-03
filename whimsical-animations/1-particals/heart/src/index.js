@@ -12,6 +12,9 @@ const MAX_FADE_DURATION = 1000 + 500;
 const MAX_FADE_DALAY = 500;
 const MAX_FADE_ADJUST = 500;
 const NUM_OF_PARTICLES = 15;
+const PARTICLE_DELAY = 150;
+
+btn.style.setProperty("--pop-circle-duration", `${PARTICLE_DELAY}ms`);
 
 btn.addEventListener("click", () => {
 	btn.classList.toggle("liked");
@@ -65,14 +68,18 @@ btn.addEventListener("click", () => {
 				random(-200, 200) +
 				"ms",
 		);
-
 		particle.style.setProperty("--size", `${random(9, 15)}px`);
 		particle.style.setProperty("--twinkle-duration", `${random(150, 300)}ms`);
 		particle.style.setProperty("--twinkle-amount", `${random(3.325, 1, true)}`);
 
-		btn.appendChild(particle);
 		particles.push(particle);
 	});
+
+	window.setTimeout(() => {
+		particles.forEach((particle) => {
+			btn.append(particle);
+		});
+	}, PARTICLE_DELAY);
 
 	window.setTimeout(
 		() => {
@@ -80,6 +87,6 @@ btn.addEventListener("click", () => {
 				particle.remove();
 			});
 		},
-		MAX_FADE_DURATION + MAX_FADE_DALAY + MAX_FADE_ADJUST + 200,
+		MAX_FADE_DURATION + MAX_FADE_DALAY + MAX_FADE_ADJUST + PARTICLE_DELAY + 200,
 	);
 });

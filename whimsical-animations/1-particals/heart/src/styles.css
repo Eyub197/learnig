@@ -7,14 +7,14 @@ body {
   height: 100vh;
   background: hsl(210deg 15% 6%);
 }
+
 .particleButton {
   position: relative;
-  padding: 16px;
   background: transparent;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-
+  padding: 16px;
   &:hover {
     background: hsl(0deg 0% 100% / 0.1);
 

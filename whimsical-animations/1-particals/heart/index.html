@@ -37,6 +37,24 @@
         }
       }
 
+      @keyframes fromShrunken {
+        from {
+          transform: scale(0);
+        }
+      }
+
+      @keyframes circleColorShift{
+        from {
+          background: hsl(350deg 100% 60%);
+        }
+      }
+
+      @keyframes fadeFromOpaque {
+        from {
+          opacity: 1;
+        }
+      }
+
       .particle {
         position: absolute;
         inset: 0;
@@ -47,14 +65,36 @@
         background: white;
         pointer-events: none;
         animation:
-          twinkle 300ms infinite alternate ease-in-out,
+          twinkle var(--twinkle-duration) infinite alternate ease-in-out,
           fadeToTransparent var(--fade-duration) var(--fade-delay) forwards,
           go var(--pop-duration) forwards cubic-bezier(0.2, 0.56, 0, 1);
       }
 
+      .popCircle{
+        position: absolute;
+        inset: 0;
+        background: hsl(270deg 100% 80%);
+        border-radius: 50%;
+        opacity: 0;
+      }
+
+      .particleButton.liked .popCircle{
+        animation:
+          fromShrunken var(--pop-circle-duration),
+          circleColorShift var(--pop-circle-duration),
+          fadeFromOpaque 300ms var(--pop-circle-duration) backwards;
+      }
+
+      .particleButton.liked svg{
+        animation:
+          fromShrunken 2000ms var(--pop-circle-duration) backwards linear(0, 0.04 1.1%, 0.156 2.3%, 1.015 8.5%, 1.157 10.4%, 1.217 12.4%, 1.217 13.6%, 1.193 15%, 0.992 21.7%, 0.964 23.5%, 0.952 25.3%, 0.957 27.9%, 1.002 34.7%, 1.01 38.2%, 0.998 51%, 1);
+      }
+
       </style>
 
-    <button type="button" class="particleButton">
+
+    <butto type="button" class="particleButton">
+      <span class="popCircle"></span>
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path
           d="M3.68546 5.43796C8.61936 1.29159 11.8685 7.4309 12.0406 7.4309C12.2126 7.43091 15.4617 1.29159 20.3956 5.43796C26.8941 10.8991 13.5 21.8215 12.0406 21.8215C10.5811 21.8215 -2.81297 10.8991 3.68546 5.43796Z"
@@ -64,7 +104,7 @@
         />
       </svg>
       <span class="visually-hidden">Like this post</span>
-    </button>
+    </butto>
 
     <script type="module" src="/src/index.js"></script>
   </body>
