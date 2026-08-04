@@ -14,6 +14,11 @@ const MAX_FADE_ADJUST = 500;
 const NUM_OF_PARTICLES = 15;
 const PARTICLE_DELAY = 150;
 
+function colorShifting(particle) {
+	particle.style.backgroundColor = `hsl(${random(0, 360)}deg 90% 85%)`;
+	particle.style.setProperty("--hue-rotation", "720deg");
+}
+
 btn.style.setProperty("--pop-circle-duration", `${PARTICLE_DELAY}ms`);
 
 btn.addEventListener("click", () => {
@@ -33,6 +38,7 @@ btn.addEventListener("click", () => {
 	range(NUM_OF_PARTICLES).forEach((index) => {
 		const particle = document.createElement("span");
 		particle.classList.add("particle");
+		colorShifting(particle);
 
 		let angle = normalize(index, 0, NUM_OF_PARTICLES, 0, 360);
 		angle += random(-40, 40);
@@ -81,12 +87,12 @@ btn.addEventListener("click", () => {
 		});
 	}, PARTICLE_DELAY);
 
-	window.setTimeout(
-		() => {
-			particles.forEach((particle) => {
-				particle.remove();
-			});
-		},
-		MAX_FADE_DURATION + MAX_FADE_DALAY + MAX_FADE_ADJUST + PARTICLE_DELAY + 200,
-	);
+	// window.setTimeout(
+	// 	() => {
+	// 		particles.forEach((particle) => {
+	// 			particle.remove();
+	// 		});
+	// 	},
+	// 	MAX_FADE_DURATION + MAX_FADE_DALAY + MAX_FADE_ADJUST + PARTICLE_DELAY + 200,
+	// );
 });
