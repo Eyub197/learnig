@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Outlined text</title>
+</head>
+
+<style>
+  body {
+    font-family: sans-serif;
+    background-color: black;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+  }
+
+  svg{
+    width: 100%
+  }
+
+  .outlined-text {
+    stroke: goldenrod;
+    stroke-width: 6px;
+    paint-order: stroke fill;
+    font-size: 3rem;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    stroke-linejoin: round;
+  }
+
+</style>
+
+<body>
+  <svg>
+    <title>outlined text</title>
+    <text x="50%" y="50%" class="outlined-text">
+      Hello github
+    </text>
+  </svg>
+</body>
+</html>
