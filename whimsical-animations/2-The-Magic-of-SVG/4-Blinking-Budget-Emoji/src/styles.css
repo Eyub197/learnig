@@ -14,18 +14,17 @@ button {
 }
 
 @keyframes blink {
-  0%{
-    ry: 1;
+  0% {
+    ry: 2;
   }
 
-  8%{
+  8% {
     ry: 20;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .eye {
-    animation: blink 2200ms ease alternate;
-    animation-iteration-count: infinite;
+    animation: blink 2200ms ease alternate infinite;
   }
 }
