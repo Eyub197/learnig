@@ -11,6 +11,29 @@ const INSET_X_BY = 6;
 
 let isMenuOpen = false;
 
+function handleFlatten() {
+	if (checkPrefersReducedMotion()) {
+		return;
+	}
+
+	const duration = 0.1;
+
+	[line1, line2].forEach((line) => {
+		const lineInset = 5;
+
+		animate(
+			line,
+			{
+				x1: lineInset,
+				y1: VIEWBOX_SIZE * 0.5,
+				x2: VIEWBOX_SIZE - lineInset,
+				y2: VIEWBOX_SIZE * 0.5,
+			},
+			{ duration },
+		);
+	});
+}
+
 function handleClick() {
 	isMenuOpen = !isMenuOpen;
 	const preferceReducedMotion = checkPrefersReducedMotion();
@@ -67,6 +90,7 @@ function handleClick() {
 	// TODO: Update the icon based on the `isMenuOpen` variable.
 }
 
+button.addEventListener("pointerdown", handleFlatten);
 button.addEventListener("click", handleClick);
 
 function checkPrefersReducedMotion() {

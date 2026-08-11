@@ -55,3 +55,4 @@ export const exponentialNormalize = (
 
 	return newScaleMin + (newScaleMax - newScaleMin) * exponentialOutput;
 };
+    star.style.back
