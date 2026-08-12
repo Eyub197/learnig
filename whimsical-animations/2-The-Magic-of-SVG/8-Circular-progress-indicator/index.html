@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Code Playground</title>
+  </head>
+  <body>
+    <style>
+      .progressIndicator {
+
+      }
+    </style>
+
+    <div class="progressWrapper">
+      <svg viewBox="0 0 240 240" fill="none">
+        <title>Circular Progress Indicator</title>
+        <circle
+          class="progressTrack"
+          r="100"
+          cx="120"
+          cy="120"
+        />
+        <circle
+          class="progressIndicator"
+          r="100"
+          cx="120"
+          cy="120"
+        />
+      </svg>
+      <div class="bigNumber">0%</div>
+    </div>
+
+    <div class="controls">
+      <label for="progressSlider">
+        Progress:
+      </label>
+      <input
+        id="progressSlider"
+        type="range"
+        value="0"
+        min="0"
+        max="100"
+        step="1"
+      />
+    </div>
+
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
