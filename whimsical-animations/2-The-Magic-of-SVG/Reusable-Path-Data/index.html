@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reusable path data</title>
+</head>
+<body>
+  <style>
+    html {
+      display: grid;
+      place-content: center;
+      height: 100vh;
+      background-color: hsl(210deg 15% 6%);
+      color: white;
+    }
+
+    svg {
+      display: block;
+      width: 100%;
+      overflow: visible;
+      stroke-width: 10px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes cycle {
+      to {
+        stroke-dashoffset: var(--repeat-length);
+      }
+    }
+
+    .rainbow {
+      animation: cycle var(--cycle-duration) linear infinite;
+    }
+
+  </style>
+
+ <svg viewBox="0 0 200 200" fill="none">
+   <title>Rainbow</title>
+   <defs>
+     <path
+       id="path-template"
+       d="
+         M 20,100
+         A 40, 40, 0 0 1 180,100
+         Z
+       "
+     />
+   </defs>
+
+   <use
+     href="#path-template"
+     class="rainbow"
+     stroke="hsl(45deg 100% 50%)"
+     stroke-dasharray="100,100"
+     style="--repeat-length: 200px; --cycle-duration: 12345ms"
+   />
+   <use
+     href="#path-template"
+     class="rainbow"
+     stroke="hsl(130deg 70% 60%)"
+     stroke-dasharray="80,100"
+     style="--repeat-length: 180px; --cycle-duration: 4200ms"
+   />
+   <use
+     href="#path-template"
+     class="rainbow"
+     stroke="hsl(340deg 100% 60%)"
+     stroke-dasharray="30,30"
+     style="--repeat-length: 60px; --cycle-duration: 4200ms"
+   />
+   <use
+     href="#path-template"
+     class="rainbow"
+     stroke="hsl(260deg 70% 42%)"
+     stroke-dasharray="20,60 40,20"
+     style="--repeat-length: 140px; --cycle-duration: 12345ms"
+   />
+   <use
+     href="#path-template"
+     class="rainbow"
+     stroke="hsl(210deg 80% 50%)"
+     stroke-dasharray="20, 120"
+     style="--repeat-length: 140px; --cycle-duration: 10000ms"
+   />
+ </svg>
+
+</body>
+</html>
