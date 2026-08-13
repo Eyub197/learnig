@@ -15,33 +15,46 @@
   </head>
   <body>
     <style>
+      .foreground {
+        stroke-dasharray: 430, 3000;
+        stroke-dashoffset: 430;
+      }
 
+      button:hover .foreground {
+        stroke-dashoffset: 0px;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .foreground {
+          transition: stroke-dashoffset 1000ms;
+        }
+      }
     </style>
 
     <button type="button">
       <svg viewBox="0 0 326 85" fill="none">
         <title>Swoop</title>
-        <path
+        <defs>
+          <path
+            id="path-template"
+            d="
+              M 1,75
+              C 1,75 29,-2 67,2
+              C 95,4 94,41 122,49
+              C 152,56 168,21 199,28
+              C 231,35 229,84 263,85
+              C 292,85 326,41 326,41
+            "
+          />
+        </defs>
+
+        <use
+          href="#path-template"
           class="background"
-          d="
-            M 1,75
-            C 1,75 29,-2 67,2
-            C 95,4 94,41 122,49
-            C 152,56 168,21 199,28
-            C 231,35 229,84 263,85
-            C 292,85 326,41 326,41
-          "
         />
-        <path
+        <use
+          href="#path-template"
           class="foreground"
-          d="
-            M 1,75
-            C 1,75 29,-2 67,2
-            C 95,4 94,41 122,49
-            C 152,56 168,21 199,28
-            C 231,35 229,84 263,85
-            C 292,85 326,41 326,41
-          "
         />
       </svg>
     </button>
