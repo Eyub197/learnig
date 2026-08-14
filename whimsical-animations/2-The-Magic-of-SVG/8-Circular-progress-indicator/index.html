@@ -16,8 +16,12 @@
   <body>
     <style>
       .progressIndicator {
-
+        stroke-dasharray: 100, 1000;
+        stroke-dashoffset: 100;
+        transform-origin: center;
+        transform: rotate(-90deg);
       }
+
     </style>
 
     <div class="progressWrapper">
@@ -30,6 +34,7 @@
           cy="120"
         />
         <circle
+          pathLength="100"
           class="progressIndicator"
           r="100"
           cx="120"
