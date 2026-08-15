@@ -1,33 +1,33 @@
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-  align-items: center;
-  height: 100vh;
-  background: hsl(210deg 15% 6%);
-  color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 16px;
+	align-items: center;
+	height: 100vh;
+	background: hsl(210deg 15% 6%);
+	color: white;
 }
 button {
-  display: block;
-  background: none;
-  padding: 0;
-  border: 1px solid hsl(210deg 15% 30%);
-  cursor: pointer;
+	display: block;
+	background: none;
+	padding: 0;
+	border: 1px solid hsl(210deg 15% 30%);
+	cursor: pointer;
 }
 svg {
-  display: block;
-  width: 96px;
-  height: 96px;
-  stroke: hsl(45deg 100% 50%);
-  stroke-linecap: round;
+	display: block;
+	width: 96px;
+	height: 96px;
+	stroke: hsl(45deg 100% 50%);
+	stroke-linecap: round;
 }
 
-.x-one{
-  y1: 6;
-  y2: 18;
+.x-one {
+	y1: 6;
+	y2: 18;
 }
-.x-two{
-  y1: 18;
-  y2: 6;
+.x-two {
+	y1: 18;
+	y2: 6;
 }

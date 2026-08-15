@@ -51,8 +51,8 @@ export const exponentialNormalize = (
 	const normalizedInput =
 		(value - currentScaleMin) / (currentScaleMax - currentScaleMin);
 
-	const exponentialOutput = Math.pow(normalizedInput, exponent);
+	const exponentialOutput = normalizedInput ** exponent;
 
 	return newScaleMin + (newScaleMax - newScaleMin) * exponentialOutput;
 };
-    star.style.back
+star.style.back;

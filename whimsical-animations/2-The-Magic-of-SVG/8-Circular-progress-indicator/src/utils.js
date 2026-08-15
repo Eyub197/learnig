@@ -1,20 +1,20 @@
 export const normalize = (
-  number,
-  currentScaleMin,
-  currentScaleMax,
-  newScaleMin = 0,
-  newScaleMax = 1
+	number,
+	currentScaleMin,
+	currentScaleMax,
+	newScaleMin = 0,
+	newScaleMax = 1,
 ) => {
-  const standardNormalization =
-    (number - currentScaleMin) / (currentScaleMax - currentScaleMin);
+	const standardNormalization =
+		(number - currentScaleMin) / (currentScaleMax - currentScaleMin);
 
-  return (newScaleMax - newScaleMin) * standardNormalization + newScaleMin;
+	return (newScaleMax - newScaleMin) * standardNormalization + newScaleMin;
 };
 
 export const clamp = (val, min, max) => {
-  if (min > max) {
-    [min, max] = [max, min];
-  }
+	if (min > max) {
+		[min, max] = [max, min];
+	}
 
-  return Math.max(min, Math.min(max, val));
+	return Math.max(min, Math.min(max, val));
 };

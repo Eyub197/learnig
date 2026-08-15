@@ -1,4 +1,4 @@
-import { normalize, clamp } from "./utils";
+import { clamp, normalize } from "./utils";
 import "./reset.css";
 import "./styles.css";
 

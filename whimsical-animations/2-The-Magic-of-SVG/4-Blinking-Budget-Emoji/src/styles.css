@@ -1,30 +1,30 @@
 html {
-  display: grid;
-  place-content: center;
-  height: 100vh;
-  background: hsl(210deg 15% 6%);
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	background: hsl(210deg 15% 6%);
 }
 
 button {
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  outline: 1px solid hsl(210deg 15% 30%);
+	background: transparent;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: 1px solid hsl(210deg 15% 30%);
 }
 
 @keyframes blink {
-  0% {
-    ry: 2;
-  }
+	0% {
+		ry: 2;
+	}
 
-  8% {
-    ry: 20;
-  }
+	8% {
+		ry: 20;
+	}
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .eye {
-    animation: blink 2200ms ease alternate infinite;
-  }
+	.eye {
+		animation: blink 2200ms ease alternate infinite;
+	}
 }

@@ -1,62 +1,62 @@
 html {
-  color-scheme: dark;
+	color-scheme: dark;
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-    hsl(240deg 20% 10%),
-    hsl(240deg 40% 2%)
-  );
-  height: 100svh;
-  height: 100vh;
-  border: 2px solid hsl(240deg 20% 20%);
-  border-radius: 5px;
+	background: linear-gradient(
+		to bottom,
+		hsl(240deg 20% 10%),
+		hsl(240deg 40% 2%)
+	);
+	height: 100svh;
+	height: 100vh;
+	border: 2px solid hsl(240deg 20% 20%);
+	border-radius: 5px;
 }
 
 .particleButton {
-  position: absolute;
-  /* Ensure that the button sits in front of the particles: */
-  z-index: 2;
-  left: 0;
-  right: 0;
-  bottom: 1rem;
-  width: fit-content;
-  margin-inline: auto;
-  padding: 1rem 3rem;
-  border: none;
-  border-bottom: 3px solid hsl(240deg 90% 36%);
-  border-radius: 6px;
-  background: hsl(240deg 90% 48%);
-  font-weight: 900;
-  text-transform: uppercase;
-  cursor: pointer;
+	position: absolute;
+	/* Ensure that the button sits in front of the particles: */
+	z-index: 2;
+	left: 0;
+	right: 0;
+	bottom: 1rem;
+	width: fit-content;
+	margin-inline: auto;
+	padding: 1rem 3rem;
+	border: none;
+	border-bottom: 3px solid hsl(240deg 90% 36%);
+	border-radius: 6px;
+	background: hsl(240deg 90% 48%);
+	font-weight: 900;
+	text-transform: uppercase;
+	cursor: pointer;
 
-  &:active {
-    border-bottom-width: 1px;
-  }
+	&:active {
+		border-bottom-width: 1px;
+	}
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+	from {
+		opacity: 0;
+	}
 
-  to {
-    opacity: 1;
-  }
+	to {
+		opacity: 1;
+	}
 }
 
 .starsLayer {
-  position: absolute;
-  inset: 0;
-  overflow: clip;
+	position: absolute;
+	inset: 0;
+	overflow: clip;
 }
 
 .star {
-  position: absolute;
-  animation: fadeIn 2000ms;
-  pointer-events: none;
-  user-select: none;
-  transform: translate(-50%, -50%);
+	position: absolute;
+	animation: fadeIn 2000ms;
+	pointer-events: none;
+	user-select: none;
+	transform: translate(-50%, -50%);
 }

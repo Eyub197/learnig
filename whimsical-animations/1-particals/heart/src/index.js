@@ -1,4 +1,4 @@
-import { range, random } from "lodash";
+import { random, range } from "lodash";
 import { normalize } from "../../../utils";
 import "./reset.css";
 import "./styles.css";

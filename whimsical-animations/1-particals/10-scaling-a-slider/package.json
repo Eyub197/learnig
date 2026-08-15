@@ -1,19 +1,19 @@
 {
-  "name": "code-playground-1783777608042",
-  "author": "Josh W. Comeau (https://courses.joshwcomeau.com)",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "typescript": "^7.0.2",
-    "vite": "^6"
-  },
-  "dependencies": {
-    "lodash": "4.17"
-  }
+	"name": "code-playground-1783777608042",
+	"author": "Josh W. Comeau (https://courses.joshwcomeau.com)",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"typescript": "^7.0.2",
+		"vite": "^6"
+	},
+	"dependencies": {
+		"lodash": "4.17"
+	}
 }

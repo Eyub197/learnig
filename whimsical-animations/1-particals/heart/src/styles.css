@@ -1,39 +1,39 @@
 html {
-  --red: oklch(0.65 0.3 19.41);
+	--red: oklch(0.65 0.3 19.41);
 }
 body {
-  display: grid;
-  place-content: center;
-  height: 100vh;
-  background: hsl(210deg 15% 6%);
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	background: hsl(210deg 15% 6%);
 }
 
 .particleButton {
-  position: relative;
-  background: transparent;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 16px;
-  &:hover {
-    background: hsl(0deg 0% 100% / 0.1);
+	position: relative;
+	background: transparent;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 16px;
+	&:hover {
+		background: hsl(0deg 0% 100% / 0.1);
 
-    path {
-      stroke: var(--red);
-    }
-  }
+		path {
+			stroke: var(--red);
+		}
+	}
 
-  &.liked path {
-    fill: var(--red);
-    stroke: var(--red);
-  }
+	&.liked path {
+		fill: var(--red);
+		stroke: var(--red);
+	}
 }
 
 .particleButton svg {
-  position: relative;
-  display: block;
-  width: 3rem;
-  height: 3rem;
+	position: relative;
+	display: block;
+	width: 3rem;
+	height: 3rem;
 }
 
 /*
@@ -43,11 +43,11 @@ body {
   https://www.joshwcomeau.com/snippets/react-components/visually-hidden/
 */
 .visually-hidden:not(:focus):not(:active) {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
 }

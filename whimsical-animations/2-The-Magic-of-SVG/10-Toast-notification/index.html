@@ -1,0 +1,100 @@
+<!-- my solution is a little bit dffrent check course notes if you want the real one-->
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		:root {
+			--spring-toast-appear: cubic-bezier(0.12, 1.04, 0.3, 1);
+			--spring-toast-appear-duration: 1200ms;
+			--spring-toast-disappear: cubic-bezier(0.2, 1, 0.3, 1);
+			--spring-toast-disappear-duration: 400ms;
+
+			@supports (animation-timing-function: linear(0, 1)) {
+				--spring-toast-appear: linear(
+					0,
+					0.023 1.3%,
+					0.099 2.9%,
+					0.563 9.5%,
+					0.767 13.2%,
+					0.906 17.2%,
+					0.952 19.4%,
+					0.985 21.9%,
+					1.007 25.2%,
+					1.015 29.4%,
+					1 50.2%,
+					1
+				);
+
+				--spring-toast-disappear: linear(
+					0,
+					0.013 1%,
+					0.052 2.2%,
+					0.418 9.8%,
+					0.614 15.2%,
+					0.695 18.3%,
+					0.766 21.7%,
+					0.824 25.4%,
+					0.871 29.4%,
+					0.909 33.9%,
+					0.938 38.9%,
+					0.976 51.4%,
+					0.994 68.8%,
+					1
+				);
+			}
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			.toast {
+				transition: transform var(--spring-toast-appear)
+					var(--spring-toast-appear-duration);
+			}
+		}
+
+		.toast {
+			--inset-by: 16px;
+			position: fixed;
+			left: var(--inset-by);
+			bottom: var(--inset-by);
+		}
+
+		.toast.hidden {
+			/*
+          When the “hidden” class is applied, slide the toast
+          down by its own height + the gap below the toast.
+          This causes it to sit just out of view, right
+          underneath the bottom of the viewport.
+        */
+			transform: translateY(calc(100% + var(--inset-by)));
+			transition: transform var(--spring-toast-disappear)
+				var(--spring-toast-disappear-duration);
+		}
+		</style>
+
+		<button type="button" class="toggle-toast">Toggle toast</button>
+
+		<div class="toast hidden">
+			<p>Your preferences have been saved.</p>
+			<button type="button" class="dismiss-toast">
+				<span class="visually-hidden">Dismiss</span>
+				<svg viewBox="0 0 24 24">
+					<title>Dismiss</title>
+					<line x1="2" y1="2" x2="22" y2="22" />
+					<line x1="2" y1="22" x2="22" y2="2" />
+				</svg>
+			</button>
+		</div>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>

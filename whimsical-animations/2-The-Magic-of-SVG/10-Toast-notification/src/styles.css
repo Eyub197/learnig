@@ -1,0 +1,57 @@
+html {
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	background: hsl(210deg 15% 6%);
+}
+.toast {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 8px;
+	padding-left: 12px;
+	border-radius: 8px;
+	color: black;
+	background: white;
+	font-size: 0.875rem;
+}
+.visually-hidden:not(:focus):not(:active) {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+.toggle-toast {
+	padding: 16px 24px;
+	font-weight: 500;
+	cursor: pointer;
+}
+.dismiss-toast {
+	--size: 40px;
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--size);
+	height: var(--size);
+	padding: 0;
+	border: none;
+	border-radius: 4px;
+	background: transparent;
+	cursor: pointer;
+
+	&:hover {
+		background: hsl(0deg 0% 0% / 0.1);
+	}
+
+	svg {
+		display: block;
+		width: 16px;
+		height: 16px;
+		stroke: black;
+		stroke-width: 4px;
+	}
+}
