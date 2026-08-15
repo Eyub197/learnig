@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<button type="button" class="like-btn">
+			<svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+				<path
+					d="
+            M 3.5 5.5
+            C 8.6 1.3
+              11.9 7.4
+              12 7.4
+            C 12.2 7.4
+              15.5 1.3
+              20.4 5.4
+            C 26.9 10.9
+              13.5 21.8
+              12 21.8
+            C 10.6 21.8
+              -2.8 10.9
+              3.7 5.4
+            Z
+          "
+					fill="hsl(350deg 100% 50%)"
+				/>
+			</svg>
+			<span class="visually-hidden">Like this post</span>
+		</button>
+
+		<!--
+      MASK CHEATSHEET
+
+      Create the mask using a <mask> element.
+      It should be within the head of the SVG
+      (`defs`) and have a unique ID:
+
+        <defs>
+          <mask id="rainbow">
+            // shapes here
+          </mask>
+        </defs>
+
+      Anything white will be visible. Anything
+      black will be hidden.
+
+      You can apply the mask to individual SVG
+      shapes using the `mask` property:
+
+        <rect mask="url(#rainbow)" />
+    -->
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>

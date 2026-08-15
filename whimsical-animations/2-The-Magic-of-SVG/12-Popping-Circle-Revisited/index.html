@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		@keyframes grow {
+			to {
+				r: 50px;
+			}
+		}
+		@keyframes fadeToTransparent {
+			to {
+				opacity: 0;
+			}
+		}
+
+		.pop-btn.popped {
+			.pop-circle {
+				animation:
+					grow 600ms forwards var(--easing-smooth),
+					fadeToTransparent 600ms forwards;
+			}
+		}
+		</style>
+
+		<button type="button" class="pop-btn">
+			<svg viewBox="0 0 100 100" fill="none">
+				<title>Pop!</title>
+				<circle
+					class="pop-circle"
+					cx="50"
+					cy="50"
+					r="0"
+					fill="hsl(270deg 100% 80%)"
+				/>
+			</svg>
+			<span class="visually-hidden"> Pop! </span>
+		</button>
+
+		<!--
+      MASK CHEATSHEET
+
+      Create the mask using a <mask> element.
+      It should be within the head of the SVG
+      (`defs`) and have a unique ID:
+
+        <defs>
+          <mask id="rainbow">
+            // shapes here
+          </mask>
+        </defs>
+
+      Anything white will be visible. Anything
+      black will be hidden.
+
+      You can apply the mask to individual SVG
+      shapes using the `mask` property:
+
+        <rect mask="url(#rainbow)" />
+    -->
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>
