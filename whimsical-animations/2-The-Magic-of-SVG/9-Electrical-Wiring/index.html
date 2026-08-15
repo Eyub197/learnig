@@ -33,18 +33,32 @@
         }
       }
 
-      .line {
-        stroke-dasharray: 10px, 1000px;
-        animation:
-        electric var(--path-speed) var(--delay) linear infinite backwards,
-        wiggle var(--wiggle-duration) ease-in-out infinite alternate;
+
+      @media (prefers-reduced-motion: no-preference) {
+        .line {
+          animation:
+          electric var(--path-speed) var(--delay) linear infinite backwards,
+          wiggle var(--wiggle-duration) ease-in-out infinite alternate;
+        }
+
       }
 
-      /* how can day move at the same speed all of the linest? even though there paths are different lengths
-        and every one of them should start whenver it reaches the end soo how?????
-        they move in the same speed but diffrent paths soo how they can be the same speed?
+      .line {
+        stroke-dasharray: 10px, 1000px;
+      }
 
-      */
+      .one {
+        stroke-dashoffset: -30px;
+      }
+
+      .two {
+        stroke-dashoffset: -40px;
+      }
+
+      .three {
+        stroke-dashoffset: -20px;
+      }
+
 
 
     </style>
