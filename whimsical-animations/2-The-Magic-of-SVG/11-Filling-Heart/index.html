@@ -15,36 +15,40 @@
 			<svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
 				<defs>
 					<mask id="heart">
-						<rect x="0" y="0" width="24" height="24" fill="white" />
-						<rect
-							x="0"
-							y="0"
-							width="24"
-							height="24"
-							fill="hsl(350deg 100% 50%)"
+						<path
+							d="
+                M 3.5 5.5
+                C 8.6 1.3
+                  11.9 7.4
+                  12 7.4
+                C 12.2 7.4
+                  15.5 1.3
+                  20.4 5.4
+                C 26.9 10.9
+                  13.5 21.8
+                  12 21.8
+                C 10.6 21.8
+                  -2.8 10.9
+                  3.7 5.4
+                Z
+              "
+							fill="white"
 						/>
 					</mask>
 				</defs>
-				<path
-					mask="heart"
-					d="
-            M 3.5 5.5
-            C 8.6 1.3
-              11.9 7.4
-              12 7.4
-            C 12.2 7.4
-              15.5 1.3
-              20.4 5.4
-            C 26.9 10.9
-              13.5 21.8
-              12 21.8
-            C 10.6 21.8
-              -2.8 10.9
-              3.7 5.4
-            Z
-          "
-					fill="white"
-				/>
+				<g mask="url(#heart)">
+					<rect x="0" y="0" width="24" height="24" fill="white" />
+
+					<rect
+						mask="url(#heart)"
+						class="heart-fill"
+						x="0"
+						y="24"
+						width="24"
+						height="24"
+						fill="hsl(350deg 100% 50%)"
+					/>
+				</g>
 			</svg>
 			<span class="visually-hidden">Like this post</span>
 		</button>
