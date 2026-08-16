@@ -23,11 +23,31 @@
 			}
 		}
 
+		/* Fallback for motion-sensitive folks */
 		.pop-btn.popped {
 			.pop-circle {
 				animation:
-					grow 600ms forwards var(--easing-smooth),
-					fadeToTransparent 600ms forwards;
+					grow 0ms forwards var(--easing-smooth),
+					fadeToTransparent 500ms 200ms forwards;
+			}
+		}
+
+		/* Animated version: */
+		@media (prefers-reduced-motion: no-preference) {
+			.pop-btn.popped {
+				--grow-duration: 600ms;
+				--mask-delay: 200ms;
+				--time-until-popped: calc(var(--grow-duration) + var(--mask-delay));
+
+				.pop-circle {
+					animation:
+						grow var(--grow-duration) var(--easing-smooth) forwards,
+						fadeToTransparent 300ms var(--time-until-popped) forwards;
+				}
+				.mask-circle {
+					animation: grow var(--grow-duration) var(--mask-delay)
+						var(--easing-smooth) forwards;
+				}
 			}
 		}
 		</style>
@@ -35,8 +55,16 @@
 		<button type="button" class="pop-btn">
 			<svg viewBox="0 0 100 100" fill="none">
 				<title>Pop!</title>
+				<defs>
+					<mask id="pop-mask">
+						<rect x="0" y="0" width="100" height="100" fill="white" />
+						<circle class="mask-circle" cx="50" cy="50" r="0" fill="black" />
+					</mask>
+				</defs>
+
 				<circle
 					class="pop-circle"
+					mask="url(#pop-mask)"
 					cx="50"
 					cy="50"
 					r="0"
@@ -45,28 +73,6 @@
 			</svg>
 			<span class="visually-hidden"> Pop! </span>
 		</button>
-
-		<!--
-      MASK CHEATSHEET
-
-      Create the mask using a <mask> element.
-      It should be within the head of the SVG
-      (`defs`) and have a unique ID:
-
-        <defs>
-          <mask id="rainbow">
-            // shapes here
-          </mask>
-        </defs>
-
-      Anything white will be visible. Anything
-      black will be hidden.
-
-      You can apply the mask to individual SVG
-      shapes using the `mask` property:
-
-        <rect mask="url(#rainbow)" />
-    -->
 
 		<script type="module" src="/src/index.js"></script>
 	</body>
