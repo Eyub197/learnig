@@ -1,76 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Code Playground</title>
-  </head>
-  <body>
-    <style>
-      .foreground {
-        transition: stroke-dashoffset 1500ms;
-        stroke-dashoffset: 100px;
-        stroke-dasharray: 100, 1000;
-      }
-      
-      .btn:hover .foreground {
-        stroke-dashoffset: 0px;
-      }
-    </style>
-    
-    <button class="btn">
-      <svg viewBox="0 0 200 200" aria-hidden="true">
-        <path
-          class="background"
-          d="
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		.foreground {
+			transition: stroke-dashoffset 1500ms;
+			stroke-dashoffset: 100px;
+			stroke-dasharray: 100, 1000;
+		}
+
+		.btn:hover .foreground {
+			stroke-dashoffset: 0px;
+		}
+		</style>
+
+		<button type="button" class="btn">
+			<svg viewBox="0 0 200 200" aria-hidden="true">
+				<defs>
+					<mask id="swoop-mask">
+						<path
+							stroke="white"
+							d="
             M 20,180
             Q 180,180
               180,20
           "
-        />
-        <path
-          class="foreground"
-          pathLength="100"
-          d="
+						/>
+					</mask>
+				</defs>
+				<path
+					class="background"
+					d="
             M 20,180
             Q 180,180
               180,20
           "
-        />
-      </svg>
-    </button>
-    
-    <!--
+				/>
+				<path
+					class="foreground"
+					pathLength="100"
+					mask="url(#swoop-mask)"
+					d="
+            M 10,180
+            L 20, 180
+            Q 180,180
+              180,20
+          "
+				/>
+			</svg>
+		</button>
+
+		<!--
       MASK CHEATSHEET
-    
+
       Create the mask using a <mask> element.
       It should be within the head of the SVG
       (`defs`) and have a unique ID:
-      
+
         <defs>
           <mask id="rainbow">
             // shapes here
           </mask>
         </defs>
-      
+
       Anything white will be visible. Anything
       black will be hidden.
-      
+
       You can apply the mask to individual SVG
       shapes using the `mask` property:
-      
+
         <rect mask="url(#rainbow)" />
     -->
 
-    <script type="module" src="/src/index.js"></script>
-  </body>
+		<script type="module" src="/src/index.js"></script>
+	</body>
 </html>
-  
