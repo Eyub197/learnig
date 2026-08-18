@@ -1,0 +1,31 @@
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	height: 100svh;
+	background: hsl(210deg 15% 6%);
+	color: white;
+}
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 4rem;
+	height: 4rem;
+	padding: 0;
+	margin: 0;
+	border: 2px solid hsl(210deg 15% 25%);
+	color: white;
+	background: transparent;
+	cursor: pointer;
+}
+.boop-target {
+	display: block;
+	width: 3rem;
+	height: 3rem;
+	stroke: white;
+	stroke-width: 2px;
+	stroke-linecap: round;
+}
