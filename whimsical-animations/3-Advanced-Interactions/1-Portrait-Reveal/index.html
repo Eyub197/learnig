@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		.fellow {
+			--blur-radius: 20px;
+			--translate-y: 16px;
+			filter: blur(var(--blur-radius));
+			transform: translateY(var(--translate-y));
+		}
+
+		@media not (pointer: fine) {
+			.wrapper:focus-visible .fellow {
+				filter: blur(0px);
+				transform: translateY(0px);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.fellow {
+				filter: blur(20px);
+				transform: translateY(16px);
+			}
+
+			.wrapper:hover .fellow {
+				filter: blur(0px);
+				transform: translateY(0px);
+			}
+		}
+		</style>
+
+		<button type="button" class="wrapper">
+			<img
+				class="fellow"
+				src="https://sandpack-bundler.vercel.app/img/josh-mascot.png"
+				alt="A cute 3D illustration of a smiling boy with rosy cheeks and a yellow hoodie"
+				draggable="false"
+			>
+		</button>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>
