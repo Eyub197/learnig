@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		@keyframes grow {
+			to {
+				transform: scale(1);
+			}
+		}
+
+		@keyframes fate {
+			to {
+				opacity: 0;
+			}
+		}
+
+		.ripple-button {
+			position: relative;
+			overflow: clip;
+		}
+
+		.ripple {
+			position: absolute;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			translate: -50% -50%;
+			background-color: hsl(0deg 60% 100% / 0.15);
+			pointer-events: none;
+		}
+		</style>
+
+		<button type="button" data-ripple="true" class="ripple-button">
+			Click me
+		</button>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>
