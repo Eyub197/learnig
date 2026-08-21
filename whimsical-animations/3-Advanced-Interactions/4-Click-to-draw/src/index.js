@@ -3,38 +3,46 @@ import "./reset.css";
 import "./styles.css";
 
 const svg = document.querySelector("svg");
+const points = [];
+let polyline;
+
+function convertPointsToString(points) {
+	let output = "";
+
+	points.forEach(({ x, y }) => {
+		output += `${x},${y} `;
+	});
+
+	return output;
+}
 
 svg.addEventListener("click", (event) => {
+	const x = normalize(event.offsetX, 0, svg.clientWidth, 0, 400);
+	const y = normalize(event.offsetY, 0, svg.clientHeight, 0, 300);
+	points.push({ x, y });
+
 	const circle = document.createElementNS(
 		"http://www.w3.org/2000/svg",
 		"circle",
 	);
 
-	const previusCircle = svg.querySelector("circle:last-of-type") ?? null;
-	const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-
 	circle.setAttribute("r", 3);
-	circle.setAttribute(
-		"cx",
-		normalize(event.offsetX, 0, svg.clientWidth, 0, 400),
-	);
-	circle.setAttribute(
-		"cy",
-		normalize(event.offsetY, 0, svg.clientHeight, 0, 300),
-	);
+	circle.setAttribute("cx", x);
+	circle.setAttribute("cy", y);
 	svg.appendChild(circle);
 
-	const nextCircle = svg.lastElementChild;
-	console.log("previus", previusCircle);
-	console.log("next", nextCircle);
-	if (previusCircle && nextCircle) {
-		line.setAttribute("x1", previusCircle.getAttribute("cx"));
-		line.setAttribute("y1", previusCircle.getAttribute("cy"));
+	if (points.length === 2) {
+		polyline = document.createElementNS(
+			"http://www.w3.org/2000/svg",
+			"polyline",
+		);
 
-		line.setAttribute("x2", nextCircle.getAttribute("cx"));
-		line.setAttribute("y2", nextCircle.getAttribute("cy"));
+		svg.prepend(polyline);
+	}
 
-		svg.prepend(line);
+	if (points.length >= 2) {
+		const poinstString = convertPointsToString(points);
+		polyline.setAttribute("points", poinstString);
 	}
 });
 
