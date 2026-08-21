@@ -1,0 +1,25 @@
+body {
+  background: hsl(210deg 15% 6%);
+}
+.drawingPad {
+  --yellow: hsl(45deg 100% 50%);
+  
+  display: block;
+  width: 90%;
+  margin-inline: auto;
+  outline: 1px solid hsl(210deg 15% 75%);
+  border-radius: 2px;
+
+  polyline, path, line {
+    fill: none;
+    stroke: var(--yellow);
+    stroke-width: 2px;
+    stroke-linejoin: round;
+  }
+  circle {
+    r: 5px;
+    fill: var(--yellow);
+    stroke: hsl(210deg 15% 6%);
+    stroke-width: 1px;
+  }
+}
