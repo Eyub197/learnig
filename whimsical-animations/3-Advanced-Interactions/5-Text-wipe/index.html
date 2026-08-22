@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		@keyframes reveal {
+			from {
+				clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+			}
+			to {
+				clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+			}
+		}
+
+		.title {
+			max-width: fit-content;
+			margin-inline: auto;
+			padding: 0.5rem;
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			.title {
+				animation: reveal 4500ms forwards;
+			}
+		}
+		</style>
+
+		<h1 class="title">Hello, wonderful world!</h1>
+
+		<!-- Load the handwritten font from Google Fonts: -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap"
+			rel="stylesheet"
+		>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>
