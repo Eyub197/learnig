@@ -1,21 +1,21 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: hsl(210deg 15% 6%);
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	background: hsl(210deg 15% 6%);
 }
 
 .ripple-button {
-  padding: 8px 32px;
-  border: none;
-  border-radius: 8px;
-  background: hsl(250deg 60% 40%);
-  color: white;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  
-  &:hover {
-    background: hsl(248deg 50% 45%);
-  }
+	padding: 8px 32px;
+	border: none;
+	border-radius: 8px;
+	background: hsl(250deg 60% 40%);
+	color: white;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+
+	&:hover {
+		background: hsl(248deg 50% 45%);
+	}
 }

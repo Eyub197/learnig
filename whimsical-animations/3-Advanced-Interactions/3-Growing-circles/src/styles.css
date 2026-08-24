@@ -1,24 +1,24 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: hsl(210deg 15% 6%);
-  /*
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: hsl(210deg 15% 6%);
+	/*
     Allow this effect to work on touchscreens.
     NOTE: In a real app, we wouldn't want to put this
     on the <body> like this!
   */
-  touch-action: none;
+	touch-action: none;
 }
 .circleEffect {
-  --yellow: hsl(45deg 100% 50%);
-  
-  display: block;
-  width: 50%;
-  overflow: visible;
+	--yellow: hsl(45deg 100% 50%);
 
-  circle {
-    fill: var(--yellow);
-  }
+	display: block;
+	width: 50%;
+	overflow: visible;
+
+	circle {
+		fill: var(--yellow);
+	}
 }

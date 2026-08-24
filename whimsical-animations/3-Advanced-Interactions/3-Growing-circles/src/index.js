@@ -1,6 +1,5 @@
 import { throttle } from "lodash";
-
-import { normalize, clampedNormalize, getDistanceBetweenPoints } from "./utils";
+import { clampedNormalize, getDistanceBetweenPoints, normalize } from "./utils";
 import "./reset.css";
 import "./styles.css";
 

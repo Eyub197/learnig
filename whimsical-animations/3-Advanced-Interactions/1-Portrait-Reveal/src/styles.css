@@ -1,22 +1,22 @@
 body {
-  display: grid;
-  place-content: center;
-  height: 100vh;
-  background: hsl(210deg 15% 6%);
+	display: grid;
+	place-content: center;
+	height: 100vh;
+	background: hsl(210deg 15% 6%);
 }
 
 .wrapper {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  padding-top: 16px;
-  border: 2px solid white;
-  border-radius: 4px;
-  background: transparent;
-  overflow: hidden;
-  outline-offset: 2px;
+	position: relative;
+	width: 100px;
+	height: 100px;
+	padding-top: 16px;
+	border: 2px solid white;
+	border-radius: 4px;
+	background: transparent;
+	overflow: hidden;
+	outline-offset: 2px;
 }
 .fellow {
-  display: block;
-  width: 100%;
+	display: block;
+	width: 100%;
 }

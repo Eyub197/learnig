@@ -1,6 +1,6 @@
-import { normalize } from "./utils";
-import { checkVariantsDidChange, springValue } from "motion";
 import { throttle } from "lodash";
+import { springValue } from "motion";
+import { normalize } from "./utils";
 import "./reset.css";
 import "./styles.css";
 
