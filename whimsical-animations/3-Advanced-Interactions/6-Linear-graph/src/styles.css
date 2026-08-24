@@ -1,0 +1,9 @@
+body {
+	background: hsl(210deg 15% 6%);
+}
+.graph {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 90%;
+}
