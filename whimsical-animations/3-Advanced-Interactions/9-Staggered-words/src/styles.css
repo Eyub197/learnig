@@ -1,0 +1,9 @@
+body {
+  height: 200vh;
+  background: hsl(210deg 15% 6%);
+  color: white;
+}
+
+h1 {
+  margin-top: 110vh;
+}

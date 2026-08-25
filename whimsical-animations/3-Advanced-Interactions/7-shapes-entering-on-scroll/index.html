@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		@keyframes slideIn {
+			0% {
+				transform: translateX(-100%);
+			}
+			100% {
+				transform: translateX(0%);
+			}
+		}
+
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.shape {
+			animation: fadeIn;
+			animation-timeline: view();
+			animation-range-start: entry 0%;
+			animation-range-end: cover 50%;
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			.shape {
+				animation-name: slideIn;
+			}
+		}
+		</style>
+
+		<div class="wrapper">
+			<div class="shape">
+				<img
+					alt=""
+					src="https://sandpack-bundler.vercel.app/img/shape-circle.svg"
+				>
+			</div>
+			<div class="shape">
+				<img
+					alt=""
+					src="https://sandpack-bundler.vercel.app/img/shape-square.svg"
+				>
+			</div>
+			<div class="shape">
+				<img
+					alt=""
+					src="https://sandpack-bundler.vercel.app/img/shape-triangle.svg"
+				>
+			</div>
+			<div class="shape">
+				<img
+					alt=""
+					src="https://sandpack-bundler.vercel.app/img/shape-star.svg"
+				>
+			</div>
+		</div>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>
