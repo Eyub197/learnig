@@ -1,42 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Code Playground</title>
-  </head>
-  <body>
-    <style>
-      
-    </style>
-    
-    <h1>
-      <span class="word">
-        Stay
-      </span>
-      <span class="word">
-        a
-      </span>
-      <span class="word">
-        while,
-      </span>
-      <span class="word">
-        and
-      </span>
-      <span class="word">
-        listen.
-      </span>
-    </h1>
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		@keyframes fadeFromTransparent {
+			from {
+				opacity: 0;
+			}
+		}
 
-    <script type="module" src="/src/index.js"></script>
-  </body>
+		@supports (animation-range: cover calc(sibling-index() * 10%)) {
+			.word {
+				animation: fadeFromTransparent both;
+				animation-timeline: view();
+				animation-range: cover calc(20% + sibling-index() * 5%) cover
+					calc(45% + sibling-index() * 5%);
+			}
+		}
+		</style>
+
+		<h1>
+			<span class="word"> Stay </span>
+			<span class="word"> a </span>
+			<span class="word"> while, </span>
+			<span class="word"> and </span>
+			<span class="word"> listen. </span>
+		</h1>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
 </html>
-  
