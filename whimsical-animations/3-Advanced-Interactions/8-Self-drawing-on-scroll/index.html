@@ -1,35 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Code Playground</title>
-  </head>
-  <body>
-    <style>
-      
-    </style>
-    
-    <svg viewBox="0 0 200 200">
-      <path
-        d="
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		@keyframes draw {
+			from {
+				stroke-dashoffset: 100;
+			}
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			.swoop {
+				animation: draw forwards;
+				animation-timeline: scroll();
+				stroke-dasharray: 100, 1000;
+			}
+		}
+		</style>
+
+		<svg viewBox="0 0 200 200">
+			<title>swoop</title>
+			<path
+				pathLength="100"
+				class="swoop"
+				d="
           M 20,80
           C 100,20
             100,180
             180,120
         "
-      />
-    </svg>
+			/>
+		</svg>
 
-    <script type="module" src="/src/index.js"></script>
-  </body>
+		<script type="module" src="/src/index.js"></script>
+	</body>
 </html>
-  
