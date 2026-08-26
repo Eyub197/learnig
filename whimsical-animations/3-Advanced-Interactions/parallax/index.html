@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		.wrapper {
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+		}
+		.wrapper img {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			image-rendering: pixelated;
+		}
+
+		@keyframes parallax {
+			from {
+				transform: translateY(var(--from));
+			}
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			.wrapper img {
+				animation: parallax linear;
+				animation-timeline: scroll();
+			}
+		}
+		</style>
+
+		<div class="wrapper">
+			<img
+				alt=""
+				src="https://sandpack-bundler.vercel.app/img/parallax/dusk/01-sky.png"
+			>
+			<img
+				style="--from: 10px"
+				alt=""
+				src="https://sandpack-bundler.vercel.app/img/parallax/dusk/02-far-clouds.png"
+			>
+			<img
+				style="--from: 16px"
+				alt=""
+				src="https://sandpack-bundler.vercel.app/img/parallax/dusk/03-near-clouds.png"
+			>
+			<img
+				style="--from: 50px"
+				alt=""
+				src="https://sandpack-bundler.vercel.app/img/parallax/dusk/04-far-mountains.png"
+			>
+			<img
+				style="--from: 70px"
+				alt=""
+				src="https://sandpack-bundler.vercel.app/img/parallax/dusk/05-mountains.png"
+			>
+			<img
+				style="--from: 130px"
+				alt=""
+				src="https://sandpack-bundler.vercel.app/img/parallax/dusk/06-trees.png"
+			>
+		</div>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>
