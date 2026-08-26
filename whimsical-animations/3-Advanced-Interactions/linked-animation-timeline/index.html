@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		@keyframes demo {
+			to {
+				border-radius: 50%;
+			}
+		}
+
+		main {
+			timeline-scope: --content;
+		}
+
+		.content {
+			outline: 1px solid;
+			view-timeline: --content;
+		}
+
+		.square {
+			animation: demo both;
+			animation-timeline: --content;
+			animation-range: contain;
+		}
+		</style>
+
+		<main>
+			<div class="left col">
+				<div class="square"></div>
+			</div>
+			<div class="right col">
+				<p class="content">Animate based on me!</p>
+			</div>
+		</main>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
+</html>

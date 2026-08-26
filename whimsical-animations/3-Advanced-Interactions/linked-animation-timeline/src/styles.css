@@ -1,0 +1,30 @@
+body {
+  height: 200vh;
+  background: hsl(210deg 15% 6%);
+  color: white;
+}
+
+main {
+  display: flex;
+}
+.left.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+.right.col {
+  flex: 1;
+}
+.square {
+  position: sticky;
+  top: 0;
+  width: 200px;
+  max-width: 50vw;
+  aspect-ratio: 1 / 1;
+  background: hsl(45deg 100% 50%);
+  border-radius: 4px;
+}
+.content {
+  margin-block: 150vh;
+}
