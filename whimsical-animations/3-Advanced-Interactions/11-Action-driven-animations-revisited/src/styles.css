@@ -1,0 +1,23 @@
+html {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  color: white;
+  background: hsl(210deg 15% 6%);
+}
+.dialog {
+  position: fixed;
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-inline: auto;
+  width: 75%;
+  padding: 32px;
+  background: white;
+  border-radius: 8px;
+  
+  button {
+    flex: 1;
+  }
+}

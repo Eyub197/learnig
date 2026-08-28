@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Code Playground</title>
+  </head>
+  <body>
+    <style>
+      @keyframes enter {
+        from {
+          transform: translateY(100%);
+        }
+      }
+      
+      @keyframes cancel {
+        to {
+          filter: blur(10px);
+          transform: translateY(100%) rotate(-20deg);
+          opacity: 0;
+        }
+      }
+      
+      /*
+        NOTE: Should use the following timing function:
+        cubic-bezier(0.54, -0.8, 1, 0.9)
+      */
+      @keyframes confirm {
+        to {
+          transform: translateY(100%);
+        }
+      }
+    </style>
+    
+    <button class="toggle-btn">Toggle</button>
+
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>
+  
