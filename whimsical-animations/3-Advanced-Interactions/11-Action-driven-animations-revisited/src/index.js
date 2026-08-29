@@ -19,18 +19,24 @@ function generate() {
 	);
 }
 
-window.dialogCancel = function dismiss(elem) {
-	document.startViewTransition(() => {
-		const dialog = document.querySelector(".dialog");
+function removeDialog(viewTransitionNmae) {
+	const dialog = document.querySelector(".dialog");
+	dialog.style.viewTransitionName = viewTransitionNmae;
+	if (document.startViewTransition()) {
+		document.startViewTransition(() => {
+			dialog.remove();
+		});
+	} else {
 		dialog.remove();
-	});
+	}
+}
+
+window.dialogCancel = function dismiss(elem) {
+	removeDialog("dialogCancel");
 };
 
 window.dialogConfirm = function confirm(elem) {
-	document.startViewTransition(() => {
-		const dialog = document.querySelector(".dialog");
-		dialog.remove();
-	});
+	removeDialog("dialogConfirm");
 };
 
 toggleBtn.addEventListener("click", () => {

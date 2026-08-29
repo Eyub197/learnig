@@ -1,48 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://courses.joshwcomeau.com/favicon.rainbow.png"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Code Playground</title>
-  </head>
-  <body>
-    <style>
-      @keyframes enter {
-        from {
-          transform: translateY(100%);
-        }
-      }
-      
-      @keyframes cancel {
-        to {
-          filter: blur(10px);
-          transform: translateY(100%) rotate(-20deg);
-          opacity: 0;
-        }
-      }
-      
-      /*
-        NOTE: Should use the following timing function:
-        cubic-bezier(0.54, -0.8, 1, 0.9)
-      */
-      @keyframes confirm {
-        to {
-          transform: translateY(100%);
-        }
-      }
-    </style>
-    
-    <button class="toggle-btn">Toggle</button>
+	<head>
+		<meta charset="UTF-8">
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://courses.joshwcomeau.com/favicon.rainbow.png"
+		>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Code Playground</title>
+	</head>
+	<body>
+		<style>
+		@keyframes enter {
+			from {
+				transform: translateY(100%);
+			}
+		}
 
-    <script type="module" src="/src/index.js"></script>
-  </body>
+		@keyframes cancel {
+			to {
+				filter: blur(10px);
+				transform: translateY(100%) rotate(-20deg);
+				opacity: 0;
+			}
+		}
+
+		/*
+        NOTE: Should use the following timing function:
+      */
+		@keyframes confirm {
+			to {
+				transform: translateY(100%);
+			}
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+			::view-transition-old(dialogCancel) {
+				animation-name: cancel;
+				animation-duration: 1000ms;
+			}
+
+			::view-transition-old(dialogConfirm) {
+				animation-name: confirm;
+				animation-duration: 1000ms;
+				animation-timing-function: cubic-bezier(0.54, -0.8, 1, 0.9);
+			}
+
+			::view-transition-new(dialogEnter) {
+				animation-name: enter;
+				animation-duration: 500ms;
+			}
+
+			.dialog {
+				animation: enter 500ms cubic-bezier(0.54, -0.8, 1, 0.9);
+			}
+		}
+		</style>
+
+		<button type="button" class="toggle-btn">Toggle</button>
+
+		<script type="module" src="/src/index.js"></script>
+	</body>
 </html>
-  
