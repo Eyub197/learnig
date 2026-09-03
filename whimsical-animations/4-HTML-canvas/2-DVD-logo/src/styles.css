@@ -1,0 +1,19 @@
+html {
+  background: hsl(210deg 15% 6%);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  position: fixed;
+  inset: 0;
+  display: block;
+  border: 1px solid white;
+  border-radius: 5px;
+}
