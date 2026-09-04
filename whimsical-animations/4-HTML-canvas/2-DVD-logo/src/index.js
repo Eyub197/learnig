@@ -1,5 +1,5 @@
 import DVD_URI from "./logo";
-import { setupCanvas } from "./utils";
+import { checkPrefersReducedMotion, setupCanvas } from "./utils";
 import "./reset.css";
 import "./styles.css";
 
@@ -21,6 +21,18 @@ const logo = {
 
 function draw() {
 	ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+	if (checkPrefersReducedMotion()) {
+		ctx.drawImage(
+			img,
+			canvasWidth / 2 - logo.width,
+			canvasHeight / 2 - logo.height,
+			logo.width,
+			logo.height,
+		);
+		return;
+	}
+
 	ctx.drawImage(img, logo.x, logo.y, logo.width, logo.height);
 
 	const isLogoBeyondBoundsVertically =
