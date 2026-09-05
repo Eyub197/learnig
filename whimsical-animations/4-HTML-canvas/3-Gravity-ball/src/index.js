@@ -18,6 +18,10 @@ function draw() {
 	ctx.arc(x, y, radius, 0, Math.PI * 2);
 	ctx.fillStyle = fill;
 	ctx.fill();
+
+	if (checkPrefersReducedMotion()) {
+		return;
+	}
 }
 
 draw();
