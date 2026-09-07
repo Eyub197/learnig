@@ -12,7 +12,7 @@ const ball = {
 	y: canvasHeight / 2,
 	radius: 32,
 	fill: "deeppink",
-	velocityY: 1,
+	velocityY: 0,
 };
 
 const groundLevel = canvasHeight - ball.radius;
