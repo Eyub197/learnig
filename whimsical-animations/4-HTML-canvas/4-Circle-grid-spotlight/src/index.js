@@ -46,7 +46,9 @@ function draw() {
 			const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
 
 			const lightness =
-				distance <= 30 && !prefersReducedMotion ? 100 : baseLightness;
+				distance <= 50 && !prefersReducedMotion
+					? normalize(distance, 20, 80, 100, baseLightness)
+					: baseLightness;
 
 			ctx.beginPath();
 			ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
