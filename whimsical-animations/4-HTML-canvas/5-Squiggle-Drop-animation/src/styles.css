@@ -1,0 +1,13 @@
+body {
+  background: hsl(210deg 15% 6%);
+  padding: 0;
+  margin: 0;
+}
+button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  width: fit-content;
+  margin-inline: auto;
+}
