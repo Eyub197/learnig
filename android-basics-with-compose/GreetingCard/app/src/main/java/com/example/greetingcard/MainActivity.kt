@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.greetingcard.ui.theme.GreetingCardTheme
 import androidx.compose.material3.Surface
+import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +38,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Surface(color = Color.Cyan) {
         Text(
             text = "Hi, my name is $name!",
-            modifier = modifier
+            modifier = modifier.padding(34.dp)
         )
     }
 
@@ -47,6 +48,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     GreetingCardTheme {
-        Greeting("Eyub test")
+        Greeting("Eyub!!!")
     }
 }
