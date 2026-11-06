@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -15,35 +17,42 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 import androidx.compose.ui.unit.sp
+
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            HappyBirthdayTheme {
-                Surface(
-                   modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {}
-            }
-        }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    enableEdgeToEdge()
+    setContent {
+      HappyBirthdayTheme {
+        Surface(
+          modifier = Modifier.fillMaxSize(),
+          color = MaterialTheme.colorScheme.background
+        ) {}
+      }
     }
+  }
 }
 
 @Composable
-fun GreetingText(message: String, modifier: Modifier = Modifier) {
+fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+  Column {
     Text(
-        text = message,
-        fontSize = 100.sp,
-        lineHeight = 116.sp,
+      text = message,
+      fontSize = 100.sp,
+      lineHeight = 116.sp,
     )
+    Text(
+      text = from,
+      fontSize = 36.sp
+    )
+  }
 }
 
 
 @Preview(showBackground = true, showSystemUi = false)
 @Composable
 fun BirthdayCardPreview() {
-    HappyBirthdayTheme {
-        GreetingText(message = "Happy birthday Daniel!")
-    }
+  HappyBirthdayTheme {
+    GreetingText(message = "Happy birthday Daniel!", from = "from Eyub")
+  }
 }
