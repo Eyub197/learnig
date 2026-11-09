@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -37,9 +38,9 @@ class MainActivity : ComponentActivity() {
           modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
         ) {
           GreetingImage(
-            message = "Happy birthday Daniel",
-            from = "from Eyub",
-            // modifier = Modifier . padding (8.dp)
+            message = stringResource(R.string.happy_birthday_text),
+            from = stringResource(R.string.signature_text),
+            modifier = Modifier.padding(8.dp)
           )
         }
       }
@@ -68,7 +69,7 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 
 @Composable
 fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
-  Column(verticalArrangement = Arrangement.Center, modifier = Modifier.padding(8.dp)) {
+  Column(verticalArrangement = Arrangement.Center, modifier = modifier.padding(8.dp)) {
     Text(
       text = message, fontSize = 90.sp, lineHeight = 116.sp, textAlign = TextAlign.Center
     )
@@ -77,7 +78,7 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
       fontSize = 36.sp,
       modifier = Modifier
         .padding(16.dp)
-        .align(alignment = Alignment.End)
+        .align(alignment = Alignment.CenterHorizontally)
     )
   }
 }
@@ -87,7 +88,10 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 @Composable
 fun BirthdayCardPreview() {
   HappyBirthdayTheme {
-    GreetingImage(message = "Happy birthday Daniel!", from = "from Eyub")
+    GreetingImage(
+      message = stringResource(R.string.happy_birthday_text),
+      from = stringResource(R.string.signature_text)
+    )
   }
 }
 
