@@ -52,7 +52,7 @@ fun Article(modifier: Modifier = Modifier) {
     Text(
       text = stringResource(R.string.overview),
       textAlign = TextAlign.Justify,
-      modifier = modifier.padding(start = 16.dp, end = 16.dp)
+      modifier = Modifier.padding(start = 16.dp, end = 16.dp)
     )
     Text(
       text = stringResource(R.string.article_body),
